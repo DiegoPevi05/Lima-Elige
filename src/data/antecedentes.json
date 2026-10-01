@@ -4,8 +4,14 @@
       "fecha": "Marzo de 2026",
       "texto": "La Fiscalía Anticorrupción abrió una investigación preliminar contra López Aliaga y quienes resulten responsables por el endeudamiento de más de S/ 4 000 millones de la Municipalidad de Lima mediante la emisión de bonos. Los presuntos delitos son colusión y negociación incompatible.",
       "fuentes": [
-        { "medio": "LP Derecho", "url": "https://lpderecho.pe/fiscalia-investigara-lopez-aliaga-presunto-endeudamiento-s-4000-millones-mml/" },
-        { "medio": "Epicentro TV", "url": "https://epicentro.tv/lopez-aliaga-sera-investigado-por-endeudamiento-de-s-4-mil-millones/" }
+        {
+          "medio": "LP Derecho",
+          "url": "https://lpderecho.pe/fiscalia-investigara-lopez-aliaga-presunto-endeudamiento-s-4000-millones-mml/"
+        },
+        {
+          "medio": "Epicentro TV",
+          "url": "https://epicentro.tv/lopez-aliaga-sera-investigado-por-endeudamiento-de-s-4-mil-millones/"
+        }
       ]
     }
   ],
@@ -14,15 +20,24 @@
       "fecha": "2025",
       "texto": "El Ministerio Público lo incluyó como investigado, junto a funcionarios de la Municipalidad de Surco, por la demolición parcial de un inmueble vinculado a la congresista María Acuña. Los presuntos delitos, en etapa preliminar, son usurpación agravada, abuso de autoridad y usurpación de funciones.",
       "fuentes": [
-        { "medio": "Canal N", "url": "https://canaln.pe/actualidad/carlos-bruce-investigado-desalojo-surco-acuna-n487927" },
-        { "medio": "LP Derecho", "url": "https://lpderecho.pe/carlos-bruce-demolicion-casa-maria-acuna/" }
+        {
+          "medio": "Canal N",
+          "url": "https://canaln.pe/actualidad/carlos-bruce-investigado-desalojo-surco-acuna-n487927"
+        },
+        {
+          "medio": "LP Derecho",
+          "url": "https://lpderecho.pe/carlos-bruce-demolicion-casa-maria-acuna/"
+        }
       ]
     },
     {
       "fecha": "2019",
       "texto": "Una fiscal de crimen organizado de Chiclayo lo mencionó, junto a otros cuatro congresistas, en el caso “Los Temerarios del Crimen”. Bruce, entonces ministro de Vivienda, calificó la investigación de absurda y negó cualquier irregularidad.",
       "fuentes": [
-        { "medio": "Andina", "url": "https://andina.pe/agencia/noticia-carlos-bruce-califica-absurda-investigacion-su-contra-746319.aspx" }
+        {
+          "medio": "Andina",
+          "url": "https://andina.pe/agencia/noticia-carlos-bruce-califica-absurda-investigacion-su-contra-746319.aspx"
+        }
       ]
     }
   ],
@@ -31,8 +46,14 @@
       "fecha": "2024",
       "texto": "Fue señalado de haber encargado arreglos en la vivienda de la fiscal Elizabeth Peralta, quien en 2015 archivó una investigación por lavado de activos en su contra. Allison lo negó: dijo que el archivo es de 2015 y que Peralta fue nombrada fiscal de lavado de activos después.",
       "fuentes": [
-        { "medio": "RPP", "url": "https://rpp.pe/lima/judiciales/alcalde-de-magdalena-niega-haber-remodelado-la-casa-de-la-fiscal-elizabeth-peralta-es-totalmente-falso-noticia-1601938" },
-        { "medio": "Canal N", "url": "https://canaln.pe/actualidad/francis-allison-niega-vinculo-fiscal-peralta-n478735" }
+        {
+          "medio": "RPP",
+          "url": "https://rpp.pe/lima/judiciales/alcalde-de-magdalena-niega-haber-remodelado-la-casa-de-la-fiscal-elizabeth-peralta-es-totalmente-falso-noticia-1601938"
+        },
+        {
+          "medio": "Canal N",
+          "url": "https://canaln.pe/actualidad/francis-allison-niega-vinculo-fiscal-peralta-n478735"
+        }
       ]
     }
   ],
@@ -41,8 +62,14 @@
       "fecha": "2023–2026",
       "texto": "Fue condenado en 2023 a 12 años de prisión como coautor del asesinato del periodista Hugo Bustíos (1988), condena que la Corte Suprema confirmó. El 6 de febrero de 2026 el Tribunal Constitucional la anuló por prescripción y ordenó su libertad; el fallo no se pronuncia sobre su inocencia. Él mismo lo consigna en la información adicional de su hoja de vida.",
       "fuentes": [
-        { "medio": "Reporteros sin Fronteras", "url": "https://rsf.org/es/lucha-contra-la-impunidad-en-per%C3%BA-asesino-condenado-del-periodista-hugo-bust%C3%ADos-queda-en-libertad" },
-        { "medio": "La República", "url": "https://larepublica.pe/politica/2026/02/20/hija-de-hugo-bustios-tras-libertad-de-urresti-tu-memoria-papa-estara-siempre-por-encima-de-la-ignominia-hnews-304560" }
+        {
+          "medio": "Reporteros sin Fronteras",
+          "url": "https://rsf.org/es/lucha-contra-la-impunidad-en-per%C3%BA-asesino-condenado-del-periodista-hugo-bust%C3%ADos-queda-en-libertad"
+        },
+        {
+          "medio": "La República",
+          "url": "https://larepublica.pe/politica/2026/02/20/hija-de-hugo-bustios-tras-libertad-de-urresti-tu-memoria-papa-estara-siempre-por-encima-de-la-ignominia-hnews-304560"
+        }
       ]
     }
   ],
@@ -51,10 +78,59 @@
       "fecha": "Octubre de 2025",
       "texto": "Un reportaje de Panorama difundió audios y testimonios sobre una presunta red criminal que habría infiltrado las municipalidades de Comas, Ancón y Carabayllo, y mencionó a Daza, alcalde de Ancón, entre los alcaldes vinculados. Daza negó esos vínculos ante el mismo programa.",
       "fuentes": [
-        { "medio": "Panamericana", "url": "https://panamericana.pe/panorama/locales/457025-alcaldes-alias-jorobado-trilogia-edil-infiltrada-capo-organizacion-criminal" },
-        { "medio": "Trome", "url": "https://trome.com/actualidad/policiales/el-jorbado-pago-a-alcaldes-de-comas-carabayllo-y-ancon-segun-panorama-ulises-villegas-pablo-mendoza-samuel-daza-adam-smith-video-historia-de-policiales-noticia/" }
+        {
+          "medio": "Panamericana",
+          "url": "https://panamericana.pe/panorama/locales/457025-alcaldes-alias-jorobado-trilogia-edil-infiltrada-capo-organizacion-criminal"
+        },
+        {
+          "medio": "Trome",
+          "url": "https://trome.com/actualidad/policiales/el-jorbado-pago-a-alcaldes-de-comas-carabayllo-y-ancon-segun-panorama-ulises-villegas-pablo-mendoza-samuel-daza-adam-smith-video-historia-de-policiales-noticia/"
+        }
       ]
     }
   ],
-  "ahora-nacion": []
+  "ahora-nacion": [
+    {
+      "fecha": "Setiembre de 2026",
+      "texto": "Una exasesora de su despacho en el Congreso la acusa de hostigamiento laboral: afirma que fue rebajada de categoría un día después de comunicar su embarazo, en 2025, y cesada el 15 de diciembre de 2025, al día siguiente de terminar su licencia por maternidad. Según Infobae, Sunafil multó al Congreso por el caso. Paredes sostiene que el cese fue el 5 de enero de 2026 y por falta grave: más de 20 días sin asistir al trabajo.",
+      "fuentes": [
+        {
+          "medio": "Infobae",
+          "url": "https://www.infobae.com/peru/2026/09/09/extrabajadora-de-susel-paredes-la-refuta-y-afirma-que-fue-cesada-un-dia-despues-de-su-licencia-por-maternidad/"
+        },
+        {
+          "medio": "Willax",
+          "url": "https://willax.pe/politica/susel-paredes-denuncia-cese-laboral-embarazo"
+        }
+      ]
+    },
+    {
+      "fecha": "2025–2026",
+      "texto": "La Comisión de Ética del Congreso la investigó, por denuncia de un grupo de congresistas, por un foro sobre diversidad en el que personas trans invitadas usaron los baños de mujeres del Parlamento. En febrero de 2026 le impuso una amonestación escrita pública. Paredes calificó el proceso de censura a su trabajo por la comunidad LGTBIQ+.",
+      "fuentes": [
+        {
+          "medio": "Infobae",
+          "url": "https://www.infobae.com/peru/2025/05/13/comision-de-etica-aprueba-investigar-a-susel-paredes-por-permitir-que-personas-trans-usen-banos-que-difieren-de-su-genero-biologico/"
+        },
+        {
+          "medio": "LP Derecho",
+          "url": "https://lpderecho.pe/congreso-aprueba-investigacion-susel-paredes-incitar-personas-trans-usen-banos-parlamentarios/"
+        }
+      ]
+    },
+    {
+      "fecha": "Abril de 2024",
+      "texto": "La Comisión de Ética recomendó amonestarla y descontarle 60 días de sueldo por llamar “brutos” a los congresistas que aprobaron la denuncia constitucional contra la Junta Nacional de Justicia. La recomendación debía verse en el Pleno.",
+      "fuentes": [
+        {
+          "medio": "Congreso de la República",
+          "url": "https://comunicaciones.congreso.gob.pe/noticias/comision-de-etica-sanciona-a-congresistas-david-jimenez-y-susel-paredes"
+        },
+        {
+          "medio": "Gestión",
+          "url": "https://gestion.pe/peru/politica/juan-carlos-lizarzaburu-denuncia-a-susel-paredes-por-calificar-de-brutos-a-sus-colegas-congreso-de-la-republica-noticia/"
+        }
+      ]
+    }
+  ]
 }
