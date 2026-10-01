@@ -1,6 +1,34 @@
 {
   "renovacion-popular": [
     {
+      "fecha": "Agosto–setiembre de 2026",
+      "texto": "Postula como primer regidor, no como alcalde: el candidato a la alcaldía de su lista, Luis Rubio, renunció el 4 de agosto. López Aliaga sostiene que la Ley Orgánica de Municipalidades lo habilita a asumir el cargo si la lista gana. A pocos días de la elección, el JNE no había definido si le entregaría la credencial de alcalde, lo que le reprochan otras candidaturas.",
+      "fuentes": [
+        {
+          "medio": "La República",
+          "url": "https://larepublica.pe/politica/2026/08/04/luis-rubio-renuncia-a-candidatura-de-la-alcaldia-de-lima-por-renovacion-popular-hnews-180720"
+        },
+        {
+          "medio": "Infobae",
+          "url": "https://www.infobae.com/peru/2026/09/30/allison-y-urresti-reprochan-al-jne-por-no-fijar-postura-sobre-rafael-lopez-aliaga-es-una-verguenza/"
+        }
+      ]
+    },
+    {
+      "fecha": "Setiembre de 2026",
+      "texto": "Samuel Daza, candidato de Fuerza Popular, lo denunció ante el Tribunal de Honor del Pacto Ético Electoral por presunta coacción: afirma que le envió llamadas y mensajes antes de un debate para que no lo atacara. López Aliaga respondió que le ofreció dialogar.",
+      "fuentes": [
+        {
+          "medio": "Infobae",
+          "url": "https://www.infobae.com/peru/2026/09/23/rafael-lopez-aliaga-sera-denunciado-ante-el-jne-por-fujimorista-samuel-daza-por-coaccion-y-chantaje-politico/"
+        },
+        {
+          "medio": "Gestión",
+          "url": "https://gestion.pe/peru/politica/samuel-daza-denuncio-a-rafael-lopez-aliaga-ante-el-jne-por-presunta-coaccion-noticia/"
+        }
+      ]
+    },
+    {
       "fecha": "Marzo de 2026",
       "texto": "La Fiscalía Anticorrupción abrió una investigación preliminar contra López Aliaga y quienes resulten responsables por el endeudamiento de más de S/ 4 000 millones de la Municipalidad de Lima mediante la emisión de bonos. Los presuntos delitos son colusión y negociación incompatible.",
       "fuentes": [
@@ -13,9 +41,37 @@
           "url": "https://epicentro.tv/lopez-aliaga-sera-investigado-por-endeudamiento-de-s-4-mil-millones/"
         }
       ]
+    },
+    {
+      "fecha": "Setiembre de 2025",
+      "texto": "El Poder Judicial amplió por 24 meses la investigación preparatoria que se le sigue por presunto lavado de activos en el caso Panama Papers; la Fiscalía había pedido 36. López Aliaga ha solicitado ser excluido del caso.",
+      "fuentes": [
+        {
+          "medio": "Caretas",
+          "url": "https://caretas.pe/?p=771488"
+        },
+        {
+          "medio": "RPP",
+          "url": "https://rpp.pe/politica/judiciales/fiscalia-pide-al-pj-ampliar-por-36-meses-plazo-de-investigacion-preparatoria-a-rafael-lopez-aliaga-por-caso-panama-papers-noticia-1650248"
+        }
+      ]
     }
   ],
   "somos-peru": [
+    {
+      "fecha": "Setiembre de 2026",
+      "texto": "López Aliaga lo acusó en redes de tener vínculos con Odebrecht. Bruce negó haber trabajado para la constructora o participado en procesos ligados a ella, y anunció una querella por difamación.",
+      "fuentes": [
+        {
+          "medio": "Infobae",
+          "url": "https://www.infobae.com/peru/2026/09/22/rafael-lopez-aliaga-denunciado-por-carlos-bruce-insiste-en-acusarlo-de-estilo-mafioso-y-estar-a-la-sombra-de-odebrecht/"
+        },
+        {
+          "medio": "Altavoz",
+          "url": "https://altavoz.pe/politica/carlos-bruce-denuncia-a-rafael-lopez-aliaga-por-difamacion-y-se-eleva-la-tension-en-la-campana-por-lima/"
+        }
+      ]
+    },
     {
       "fecha": "2025",
       "texto": "El Ministerio Público lo incluyó como investigado, junto a funcionarios de la Municipalidad de Surco, por la demolición parcial de un inmueble vinculado a la congresista María Acuña. Los presuntos delitos, en etapa preliminar, son usurpación agravada, abuso de autoridad y usurpación de funciones.",
@@ -43,6 +99,20 @@
   ],
   "avanza-pais": [
     {
+      "fecha": "Setiembre de 2026",
+      "texto": "En el debate municipal, la candidata Mónica Yaya citó un informe de la Contraloría (n.° 111-2026, sobre el año 2025) que, según ella, registra bienes faltantes por más de S/ 2,8 millones y gastos sin sustento por más de S/ 2 millones en la Municipalidad de Magdalena. Allison dijo no conocer ese informe, lo atribuyó a la gestión anterior y defendió que su gestión fue transparente.",
+      "fuentes": [
+        {
+          "medio": "Infobae",
+          "url": "https://www.infobae.com/peru/2026/09/23/monica-yaya-cuestiona-a-francis-allison-por-informe-de-contraloria-sobre-bienes-faltantes-durante-su-gestion-en-magdalena-del-mar/"
+        },
+        {
+          "medio": "ATV",
+          "url": "https://www.atv.pe/noticia/monica-yaya-cuestiona-francis-allison-contraloria/"
+        }
+      ]
+    },
+    {
       "fecha": "2024",
       "texto": "Fue señalado de haber encargado arreglos en la vivienda de la fiscal Elizabeth Peralta, quien en 2015 archivó una investigación por lavado de activos en su contra. Allison lo negó: dijo que el archivo es de 2015 y que Peralta fue nombrada fiscal de lavado de activos después.",
       "fuentes": [
@@ -59,6 +129,20 @@
   ],
   "podemos-peru": [
     {
+      "fecha": "Agosto de 2026",
+      "texto": "El Jurado Electoral Especial de Lima Centro declaró infundada una tacha contra su candidatura, basada en su condena por difamación y en la anulación del caso Bustíos. El JEE señaló que fue rehabilitado en 2019 y que sí consignó la condena anulada en su hoja de vida.",
+      "fuentes": [
+        {
+          "medio": "Infobae",
+          "url": "https://www.infobae.com/peru/2026/08/15/jee-rechaza-tacha-contra-daniel-urresti-y-sigue-en-carrera-por-la-alcaldia-de-lima/"
+        },
+        {
+          "medio": "Gestión",
+          "url": "https://gestion.pe/peru/politica/elecciones-municipales-daniel-urresti-sigue-en-carrera-jne-desestima-tacha-en-su-contra-jne-onpe-noticia/"
+        }
+      ]
+    },
+    {
       "fecha": "2023–2026",
       "texto": "Fue condenado en 2023 a 12 años de prisión como coautor del asesinato del periodista Hugo Bustíos (1988), condena que la Corte Suprema confirmó. El 6 de febrero de 2026 el Tribunal Constitucional la anuló por prescripción y ordenó su libertad; el fallo no se pronuncia sobre su inocencia. Él mismo lo consigna en la información adicional de su hoja de vida.",
       "fuentes": [
@@ -74,6 +158,16 @@
     }
   ],
   "fuerza-popular": [
+    {
+      "fecha": "Agosto de 2026",
+      "texto": "El Comercio informó que registra carpetas fiscales por presunta negociación incompatible (2021, cuando era director general en el Ministerio de Transportes), por delitos contra la propiedad intelectual (2023 y 2024) y una investigación preliminar por negligencia ambiental (2025). También recordó que dirigió una federación de taxis y colectivos. El diario indicó que el candidato no respondió a sus consultas.",
+      "fuentes": [
+        {
+          "medio": "El Comercio",
+          "url": "https://elcomercio.pe/politica/samuel-daza-fuerza-popular-elecciones-municipales-colectivos-informales-denuncias-juan-silva-keiko-fujimori-tlcnota-noticia/"
+        }
+      ]
+    },
     {
       "fecha": "Octubre de 2025",
       "texto": "Un reportaje de Panorama difundió audios y testimonios sobre una presunta red criminal que habría infiltrado las municipalidades de Comas, Ancón y Carabayllo, y mencionó a Daza, alcalde de Ancón, entre los alcaldes vinculados. Daza negó esos vínculos ante el mismo programa.",
