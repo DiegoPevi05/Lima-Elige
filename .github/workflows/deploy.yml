@@ -1,0 +1,56 @@
+name: Publicar en Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  SSH_HOST: 145.14.151.58
+  SSH_PORT: 65002
+  SSH_USER: u996714911
+  # Carpeta que sirve el dominio en Hostinger.
+  REMOTE_DIR: /home/u996714911/domains/limaelige.digitalprocessit.com/public_html
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Los datos (src/data) y las fotos (public/img) ya están en el repo.
+      - run: npm run build
+
+      - name: Configurar SSH
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+        run: |
+          if [ -z "$SSH_KEY" ]; then
+            echo "::error::Falta el secreto HOSTINGER_SSH_KEY (clave privada SSH autorizada en Hostinger)."
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          # Clave del servidor fijada: si cambia, el despliegue falla en vez de confiar a ciegas.
+          echo "[145.14.151.58]:65002 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINTReQpnKdDO2RCy/RoEAk9IcTg5Rc4WZvPuJAsQzA32" > ~/.ssh/known_hosts
+
+      - name: Copiar dist/ al hosting
+        run: |
+          rsync -az --human-readable --stats \
+            -e "ssh -p $SSH_PORT -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o HostKeyAlgorithms=ssh-ed25519" \
+            dist/ "$SSH_USER@$SSH_HOST:$REMOTE_DIR/"
