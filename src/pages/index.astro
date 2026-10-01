@@ -48,6 +48,13 @@ const words = (s) => s.split(' ');
           <span>Lima elige.</span>
           <span>{mayus(N)} hojas de vida, lado a lado.</span>
         </h1>
+        <div class="votos" data-votos>
+          <div class="votos-rotulo" data-votos-ruedas role="img" aria-label="Cargando contador"></div>
+          <p>
+            <b>Votos informados</b>
+            <span>visitas a esta página</span>
+          </p>
+        </div>
         <p class="bajada">
           Las {N} candidaturas con mayor intención de voto en Lima Metropolitana, contadas con lo que cada una declaró ante el Jurado Nacional de
           Elecciones: estudios, trabajos, ingresos, bienes y sentencias.
@@ -401,6 +408,40 @@ Toda la información es referenciada o extraída de fuentes oficiales: la hoja d
       });
       if (!ring) anillo.closest('.selector').hidden = true;
 
+      // Odómetro de la portada: una rueda por cifra (mínimo seis). Cada rueda es una
+      // tira con los dígitos repetidos que gira dos vueltas y se detiene en el suyo.
+      const rodar = (total) => {
+        const caja = document.querySelector('[data-votos]');
+        const rotulo = caja.querySelector('[data-votos-ruedas]');
+        const cifras = String(Math.max(0, Math.round(total))).padStart(6, '0');
+        const VUELTAS = 2;
+        rotulo.setAttribute('aria-label', `${new Intl.NumberFormat('es-PE').format(total)} votos informados`);
+        rotulo.replaceChildren(
+          ...[...cifras].map((d, i) => {
+            const rueda = document.createElement('span');
+            rueda.className = 'rueda';
+            // Separación de millares, contada desde la derecha.
+            if ((cifras.length - i) % 3 === 0 && i > 0) rueda.classList.add('millar');
+            const tira = document.createElement('span');
+            tira.className = 'tira';
+            for (let v = 0; v < (VUELTAS + 1) * 10; v++) {
+              const cifra = document.createElement('span');
+              cifra.textContent = String(v % 10);
+              tira.append(cifra);
+            }
+            // Las ruedas de la derecha giran más tiempo, como en un contador mecánico.
+            tira.style.setProperty('--dur', `${1.4 + i * 0.28}s`);
+            tira.dataset.fin = String(VUELTAS * 10 + Number(d));
+            rueda.append(tira);
+            return rueda;
+          }),
+        );
+        caja.classList.add('listo');
+        const girar = () => rotulo.querySelectorAll('.tira').forEach((t) => t.style.setProperty('--fin', t.dataset.fin));
+        if (reduce) girar();
+        else requestAnimationFrame(() => requestAnimationFrame(girar));
+      };
+
       // Contador de visitas (contador.php en el hosting): suma una por navegador y día.
       (async () => {
         const hoy = new Date().toISOString().slice(0, 10);
@@ -417,6 +458,7 @@ Toda la información es referenciada o extraída de fuentes oficiales: la hoja d
           } catch {}
           document.querySelector('[data-visitas-num]').textContent = new Intl.NumberFormat('es-PE').format(visitas);
           document.querySelector('[data-visitas]').hidden = false;
+          rodar(visitas);
         } catch {}
       })();
 

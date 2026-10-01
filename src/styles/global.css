@@ -101,6 +101,82 @@ main {
   margin-top: 0.35em;
 }
 
+/* ---------- odómetro de votos informados ---------- */
+.votos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.1rem;
+  margin-top: 1.6rem;
+  visibility: hidden;
+}
+
+.votos.listo {
+  visibility: visible;
+}
+
+.votos-rotulo {
+  display: flex;
+  gap: 0.14em;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.rueda {
+  position: relative;
+  width: 0.82em;
+  height: 1.2em;
+  overflow: hidden;
+  background: var(--tinta);
+  color: var(--neblina);
+}
+
+/* Sombra arriba y abajo: la cifra parece asomar por la ventana del tambor. */
+.rueda::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent 28%, transparent 72%, rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+.rueda.millar {
+  margin-left: 0.22em;
+}
+
+.tira {
+  display: block;
+  width: 100%;
+  text-align: center;
+  transform: translateY(calc(var(--fin, 0) * -1.2em));
+  transition: transform var(--dur, 2s) cubic-bezier(0.16, 0.84, 0.24, 1);
+}
+
+.tira span {
+  display: block;
+  height: 1.2em;
+}
+
+.votos p {
+  line-height: 1.15;
+}
+
+.votos b {
+  display: block;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.votos p span {
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
 .bajada {
   max-width: 38rem;
   margin-top: 2rem;
@@ -767,6 +843,7 @@ tbody th small {
   }
 
   .portada h1,
+  .votos,
   .bajada,
   .sondeo,
   .nota {
@@ -839,6 +916,7 @@ tbody th small {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .tira,
   .ch,
   .sondeo-barra i,
   .barra i {
