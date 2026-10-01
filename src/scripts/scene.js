@@ -4,7 +4,7 @@
 // - Entre secciones, un campo de rotacional (curl noise) las arrastra.
 // Detrás, un shader dibuja el mismo campo como una rejilla de trazos.
 import * as THREE from 'three';
-import peru from '../data/peru.json';
+import lima from '../data/lima.json';
 
 // Relieve del retrato: rango de z en el que se codifica la sombra de cada punto.
 const DEPTH = 0.22;
@@ -207,53 +207,63 @@ async function samplePortrait(src, n) {
   return { points: out, rows, tint: new Float32Array(n) };
 }
 
-// Mapa del Perú: partículas repartidas dentro del contorno y teñidas en tres
-// franjas verticales (rojo, blanco, rojo); una parte dibuja el borde en tinta.
+// Mapa de Lima Metropolitana: partículas repartidas dentro de la provincia y
+// teñidas en tres franjas verticales (rojo, blanco, rojo). Una parte dibuja en
+// tinta el contorno y, más tenue, los límites entre distritos.
 function mapTargets(n) {
-  const H = 520;
-  const W = Math.ceil(H * peru.aspect);
+  const H = 560;
+  const W = Math.ceil(H * lima.aspect);
   const cv = document.createElement('canvas');
   cv.width = W;
   cv.height = H;
   const ctx = cv.getContext('2d', { willReadFrequently: true });
-  for (const ring of peru.rings) {
+  for (const ring of lima.rings) {
     ctx.beginPath();
-    ring.forEach(([x, y], i) => ctx[i ? 'lineTo' : 'moveTo']((x / peru.aspect + 0.5) * W, (0.5 - y) * H));
+    ring.forEach(([x, y], i) => ctx[i ? 'lineTo' : 'moveTo']((x / lima.aspect + 0.5) * W, (0.5 - y) * H));
     ctx.closePath();
     ctx.fill();
   }
   const mask = ctx.getImageData(0, 0, W, H).data;
+  const inside = (x, y) => {
+    const u = x / lima.aspect + 0.5;
+    const v = 0.5 - y;
+    return u >= 0 && u < 1 && v >= 0 && v < 1 && mask[(((v * H) | 0) * W + ((u * W) | 0)) * 4 + 3] >= 128;
+  };
   const points = new Float32Array(n * 3);
   const tint = new Float32Array(n);
-  const z = (0.5 - 0.44) * DEPTH;
-
-  // Borde: puntos repartidos a lo largo del contorno.
-  const ring = peru.rings[0];
-  const seg = ring.map((p, i) => Math.hypot(ring[(i + 1) % ring.length][0] - p[0], ring[(i + 1) % ring.length][1] - p[1]));
-  const total = seg.reduce((a, b) => a + b, 0);
-  const nEdge = Math.floor(n * 0.07);
   let k = 0;
-  for (let i = 0; i < ring.length; i++) {
-    const a = ring[i];
-    const b = ring[(i + 1) % ring.length];
-    const count = Math.round((seg[i] / total) * nEdge);
-    for (let j = 0; j < count && k < nEdge; j++, k++) {
-      const t = Math.random();
-      points[k * 3] = a[0] + (b[0] - a[0]) * t + (Math.random() - 0.5) * 0.004;
-      points[k * 3 + 1] = a[1] + (b[1] - a[1]) * t + (Math.random() - 0.5) * 0.004;
-      points[k * 3 + 2] = (0.5 - 0.3) * DEPTH;
-    }
-  }
+
+  // Reparte `count` puntos a lo largo de los segmentos de un grupo de anillos.
+  const trace = (rings, count, dark, jitter, clip) => {
+    const segs = rings.flatMap((ring) => ring.map((a, i) => [a, ring[(i + 1) % ring.length]]));
+    const lens = segs.map(([a, b]) => Math.hypot(b[0] - a[0], b[1] - a[1]));
+    const total = lens.reduce((a, b) => a + b, 0);
+    segs.forEach(([a, b], i) => {
+      for (let j = Math.round((lens[i] / total) * count); j > 0 && k < n; j--) {
+        const t = Math.random();
+        const x = a[0] + (b[0] - a[0]) * t + (Math.random() - 0.5) * jitter;
+        const y = a[1] + (b[1] - a[1]) * t + (Math.random() - 0.5) * jitter;
+        if (clip && !inside(x, y)) continue;
+        points[k * 3] = x;
+        points[k * 3 + 1] = y;
+        points[k * 3 + 2] = (0.5 - dark) * DEPTH;
+        k++;
+      }
+    });
+  };
+  trace(lima.rings, n * 0.07, 0.34, 0.004, false);
+  trace(lima.distritos, n * 0.1, 0.2, 0.002, true);
+
   // Relleno.
   while (k < n) {
     const u = Math.random();
     const v = Math.random();
     if (mask[(((v * H) | 0) * W + ((u * W) | 0)) * 4 + 3] < 128) continue;
-    points[k * 3] = (u - 0.5) * peru.aspect;
+    points[k * 3] = (u - 0.5) * lima.aspect;
     points[k * 3 + 1] = 0.5 - v;
     tint[k] = u < 1 / 3 || u > 2 / 3 ? 1 : 2;
     // El rojo lleva puntos más gruesos para que la franja quede saturada.
-    points[k * 3 + 2] = tint[k] === 1 ? (0.5 - 0.8) * DEPTH : z;
+    points[k * 3 + 2] = (0.5 - (tint[k] === 1 ? 0.8 : 0.44)) * DEPTH;
     k++;
   }
   return { points, tint };
