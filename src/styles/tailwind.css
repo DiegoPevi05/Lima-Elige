@@ -1,0 +1,4 @@
+/* Solo tema y utilidades (sin preflight): Tailwind se usa únicamente en las islas de React. */
+@layer theme, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);

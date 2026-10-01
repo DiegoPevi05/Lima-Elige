@@ -1,0 +1,758 @@
+:root {
+  --neblina: #dadfe0; /* el cielo de Lima */
+  --tinta: #17212b;
+  --tinta-2: #46545f;
+  --linea: rgba(23, 33, 43, 0.2);
+  --papel: rgba(218, 223, 224, 0.9);
+  --acc: #17212b;
+  --display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --texto: 'Instrument Sans', system-ui, sans-serif;
+  --col: min(34rem, 44vw);
+  --margen: clamp(1.25rem, 5vw, 5.5rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--neblina);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 100%;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--tinta);
+  outline-offset: 3px;
+}
+
+#escena {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- portada ---------- */
+.portada {
+  min-height: 135vh;
+  padding: clamp(4rem, 12vh, 8rem) var(--margen) 45vh;
+}
+
+.portada h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.portada h1 span {
+  display: block;
+}
+
+.portada h1 span:first-child {
+  font-size: clamp(5rem, 19vw, 15rem);
+}
+
+.portada h1 span:last-child {
+  font-size: clamp(1.9rem, 5.4vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 0.35em;
+}
+
+.bajada {
+  max-width: 38rem;
+  margin-top: 2rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--tinta-2);
+}
+
+.sondeo {
+  margin-top: clamp(2.5rem, 7vh, 5rem);
+  max-width: 46rem;
+  border-top: 1px solid var(--linea);
+}
+
+.sondeo a {
+  display: grid;
+  grid-template-columns: minmax(9rem, 15rem) 1fr 4.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--linea);
+  text-decoration: none;
+}
+
+.sondeo-nombre {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sondeo-nombre small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
+.sondeo-barra {
+  height: 0.6rem;
+}
+
+.sondeo-barra i,
+.barra i {
+  display: block;
+  height: 100%;
+  width: var(--w);
+  background: var(--acc);
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.js .portada:not(.visto) .sondeo-barra i,
+.js .comparar:not(.visto) .barra i {
+  transform: scaleX(0);
+}
+
+.sondeo-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.7rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.sondeo a:hover .sondeo-nombre,
+.sondeo a:focus-visible .sondeo-nombre {
+  color: var(--acc);
+}
+
+.nota {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+  max-width: 38rem;
+}
+
+/* ---------- carrusel (isla de React) ---------- */
+.carrusel {
+  margin-top: clamp(4rem, 12vh, 8rem);
+  width: min(100vw - 2 * var(--margen), 78rem);
+}
+
+.carrusel-pista {
+  height: 37rem;
+}
+
+/* Tailwind va sin preflight: se reponen aquí los mínimos que el componente espera. */
+.carrusel button {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.carrusel button[aria-label^='Mostrar'],
+.carrusel-controles > button {
+  background-color: transparent;
+}
+
+.carrusel button[aria-label^='Mostrar'] {
+  aspect-ratio: 3 / 4;
+}
+
+.carrusel-nombre {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.carrusel-foto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-position: top;
+  box-shadow: none;
+  filter: grayscale(1) contrast(1.05);
+  outline: 1px solid var(--linea);
+}
+
+.carrusel [aria-current='true'] .carrusel-foto {
+  filter: none;
+  outline: 3px solid var(--acc);
+}
+
+.carrusel-controles {
+  border-radius: 0;
+  border-color: var(--linea);
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.carrusel-pie {
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.5rem 0.9rem;
+  background: var(--papel);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.carrusel-pie span {
+  color: var(--acc);
+  font-weight: 600;
+}
+
+.carrusel-pie a {
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+}
+
+/* ---------- candidaturas ---------- */
+.cand {
+  padding: 0 var(--margen) 75vh;
+}
+
+.bloque {
+  width: var(--col);
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 3rem;
+}
+
+.entrada {
+  min-height: 100vh;
+}
+
+.puesto {
+  font-weight: 600;
+  color: var(--acc);
+}
+
+.cand h2 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(3.2rem, 7.4vw, 7rem);
+  line-height: 0.86;
+  text-transform: uppercase;
+  margin: 0.6rem 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.22em;
+}
+
+.palabra {
+  display: inline-flex;
+  overflow: hidden;
+  padding-top: 0.08em;
+}
+
+.ch {
+  display: inline-block;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--i) * 22ms);
+}
+
+.js .entrada:not(.visto) .ch {
+  transform: translateY(105%) rotate(8deg);
+}
+
+.partido {
+  color: var(--tinta-2);
+}
+
+.partido b {
+  color: var(--tinta);
+}
+
+.cifras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  margin-top: 2.2rem;
+  padding-top: 1.2rem;
+  border-top: 3px solid var(--acc);
+}
+
+.cifras dt {
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
+.cifras dd {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cifras .delta dd {
+  font-weight: 500;
+  color: var(--tinta-2);
+}
+
+.cifras small {
+  font-size: 0.4em;
+}
+
+.foto {
+  margin-top: 2rem;
+  width: 4.5rem;
+  height: auto;
+  filter: grayscale(1) contrast(1.05);
+  mix-blend-mode: multiply;
+}
+
+.sin-webgl .foto {
+  width: 11rem;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+.bloque h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+
+.dato-grande {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 1.4rem;
+}
+
+.dato-grande small {
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--tinta-2);
+}
+
+.lista {
+  border-top: 1px solid var(--linea);
+}
+
+.lista + .lista {
+  margin-top: 1.2rem;
+}
+
+.lista li {
+  display: grid;
+  grid-template-columns: 6.2rem 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.cuando {
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta-2);
+  font-size: 0.92rem;
+  padding-top: 0.1rem;
+}
+
+.lista b,
+.fallos b {
+  display: block;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.lista em,
+.fallos em {
+  display: block;
+  font-style: normal;
+  color: var(--tinta-2);
+  font-size: 0.95rem;
+}
+
+.lista small,
+.fallos small {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--tinta-2);
+}
+
+.vacio {
+  color: var(--tinta-2);
+  font-size: 1.1rem;
+}
+
+.renuncias {
+  margin-top: 1.2rem;
+  color: var(--tinta-2);
+}
+
+.renuncias b {
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.reparto {
+  display: flex;
+  height: 0.8rem;
+  background: var(--linea);
+}
+
+.reparto .pub {
+  background: var(--tinta);
+}
+
+.reparto .priv {
+  background: var(--acc);
+}
+
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.5rem;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--tinta-2);
+}
+
+.leyenda span::before {
+  content: '';
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-right: 0.45rem;
+  background: var(--tinta);
+}
+
+.leyenda .priv::before {
+  background: var(--acc);
+}
+
+.bienes {
+  margin-top: 1.8rem;
+  border-top: 1px solid var(--linea);
+}
+
+.bienes div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.bienes dt {
+  color: var(--tinta-2);
+}
+
+.bienes dd {
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.empresas {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
+.fallos li {
+  padding: 1rem 0 1rem 1rem;
+  border-left: 3px solid var(--acc);
+}
+
+.fallos li + li {
+  margin-top: 1rem;
+}
+
+.fallos p {
+  margin-top: 0.5rem;
+}
+
+.fallos .estado {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+details {
+  margin-top: 1.6rem;
+  border-top: 1px solid var(--linea);
+  padding-top: 0.9rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+details ul {
+  margin-top: 0.8rem;
+  max-height: 46vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+details li {
+  font-size: 0.88rem;
+  color: var(--tinta-2);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+/* ---------- comparación ---------- */
+.comparar {
+  min-height: 100vh;
+  padding: 14vh var(--margen) 5rem;
+}
+
+.comparar h2 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 0.88;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.tabla-wrap {
+  overflow-x: auto;
+  background: var(--papel);
+  backdrop-filter: blur(6px);
+}
+
+table {
+  width: 100%;
+  min-width: 52rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--linea);
+  vertical-align: middle;
+}
+
+thead th {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+  border-bottom: 2px solid var(--tinta);
+}
+
+tbody th {
+  font-weight: 600;
+  border-left: 4px solid var(--acc);
+}
+
+tbody th small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: var(--tinta-2);
+}
+
+.barra {
+  min-width: 10rem;
+}
+
+.barra i {
+  height: 0.45rem;
+  margin-bottom: 0.25rem;
+}
+
+.barra span {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.comparar footer {
+  margin-top: 2.5rem;
+  padding: 1rem 1.1rem;
+  background: var(--papel);
+  max-width: 44rem;
+  font-size: 0.9rem;
+  color: var(--tinta-2);
+}
+
+.comparar footer p + p {
+  margin-top: 0.7rem;
+}
+
+/* ---------- riel ---------- */
+.riel {
+  position: fixed;
+  z-index: 3;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.riel a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.riel a::after {
+  content: '';
+  width: 1rem;
+  height: 3px;
+  background: var(--tinta);
+  opacity: 0.35;
+  transition: width 0.3s, opacity 0.3s, background 0.3s;
+}
+
+.riel span {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.riel a:hover span,
+.riel a:focus-visible span,
+.riel a[data-activo] span {
+  opacity: 1;
+}
+
+.riel a[data-activo]::after,
+.riel a:hover::after {
+  width: 2rem;
+  opacity: 1;
+  background: var(--acc);
+}
+
+/* ---------- móvil: el retrato arriba, el texto pasa por encima ---------- */
+@media (max-width: 859px) {
+  :root {
+    --col: 100%;
+  }
+
+  .sondeo a {
+    grid-template-columns: 1fr 3.8rem;
+  }
+
+  .sondeo-barra {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 0.4rem;
+  }
+
+  .cand {
+    padding-bottom: 60vh;
+  }
+
+  .bloque {
+    min-height: 0;
+    margin-top: 12vh;
+    padding: 1.5rem 1.1rem;
+    background: var(--papel);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+
+  .entrada {
+    min-height: 0;
+    margin-top: 66vh;
+  }
+
+  .foto,
+  .riel span {
+    display: none;
+  }
+
+  .sin-webgl .foto {
+    display: block;
+  }
+
+  .riel {
+    right: 0.3rem;
+  }
+
+  .riel a::after {
+    width: 0.5rem;
+  }
+
+  .riel a[data-activo]::after {
+    width: 1rem;
+  }
+
+  .lista li {
+    grid-template-columns: 5rem 1fr;
+    gap: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ch,
+  .sondeo-barra i,
+  .barra i {
+    transition: none;
+  }
+
+  .js .entrada:not(.visto) .ch,
+  .js .portada:not(.visto) .sondeo-barra i,
+  .js .comparar:not(.visto) .barra i {
+    transform: none;
+  }
+}

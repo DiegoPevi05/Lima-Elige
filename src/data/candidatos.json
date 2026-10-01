@@ -1,0 +1,1137 @@
+{
+  "encuesta": {
+    "fuente": "",
+    "mediciones": [
+      "Medición A",
+      "Medición B"
+    ]
+  },
+  "candidatos": [
+    {
+      "slug": "renovacion-popular",
+      "puesto": 1,
+      "partido": "Renovación Popular",
+      "organizacion": "Renovacion Popular Peru",
+      "color": "#1789c4",
+      "intencion": [
+        28.4,
+        29.6
+      ],
+      "nombre": "Rafael Bernardo López Aliaga Cazorla",
+      "nombreCorto": "Rafael López Aliaga",
+      "apellido": "López Aliaga",
+      "cargo": "Regidor Provincial",
+      "numeroLista": 1,
+      "estado": "Inscrito",
+      "edad": 65,
+      "nacimiento": "11/02/1961",
+      "lugar": "San Isidro, Lima",
+      "foto": "img/renovacion-popular.jpg",
+      "experiencia": [
+        {
+          "anios": "2023–2025",
+          "cargo": "Alcalde",
+          "lugar": "Municipalidad Metropolitana de Lima",
+          "nota": ""
+        },
+        {
+          "anios": "1999–2022",
+          "cargo": "Director",
+          "lugar": "Ferrocarril Transandino S.A.",
+          "nota": ""
+        },
+        {
+          "anios": "1999–2022",
+          "cargo": "Director",
+          "lugar": "Perurail S.A.",
+          "nota": ""
+        },
+        {
+          "anios": "1990–2022",
+          "cargo": "Director",
+          "lugar": "Peru Belmond Hotel S.A.",
+          "nota": ""
+        },
+        {
+          "anios": "2017–2020",
+          "cargo": "Catedrático",
+          "lugar": "Universidad Nacional de Ingenieria",
+          "nota": ""
+        }
+      ],
+      "formacion": [
+        {
+          "nivel": "Maestría",
+          "titulo": "Magister en Administracion",
+          "centro": "Universidad del Pacífico",
+          "anio": "1996",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Ingeniero Industrial",
+          "centro": "Universidad de Piura",
+          "anio": "1996",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Bachiller en Ciencias de la Ingenieria",
+          "centro": "Universidad de Piura",
+          "anio": "1983",
+          "nota": ""
+        }
+      ],
+      "cargosEleccion": [
+        {
+          "anios": "2022–2026",
+          "cargo": "Alcalde Provincial",
+          "org": "Renovacion Popular",
+          "nota": "Presenté mi renuncia al cargo de alcalde metropolitano de lima el dia 13 de octubre del 2025"
+        },
+        {
+          "anios": "2007–2010",
+          "cargo": "Regidor Provincial",
+          "org": "Alianza Electoral Unidad Nacional",
+          "nota": ""
+        }
+      ],
+      "cargosPartido": [
+        {
+          "anios": "2025–hoy",
+          "cargo": "Presidente",
+          "org": "Renovacion Popular Peru"
+        },
+        {
+          "anios": "2026–hoy",
+          "cargo": "Presidente",
+          "org": "Alianza Renovacion Popular y Toro"
+        }
+      ],
+      "renuncias": [],
+      "ingresos": {
+        "anio": "2025",
+        "publico": 0,
+        "privado": 7106694,
+        "total": 7106694
+      },
+      "inmuebles": [],
+      "muebles": [],
+      "empresas": [
+        {
+          "nombre": "Acres Investments Peru S.A.",
+          "tipo": "Acciones",
+          "valor": 1
+        },
+        {
+          "nombre": "Peruvian Trains & Railways S.A.",
+          "tipo": "Acciones",
+          "valor": 1
+        },
+        {
+          "nombre": "Peru Hotel Corp S.A.",
+          "tipo": "Acciones",
+          "valor": 1
+        },
+        {
+          "nombre": "Latin Security Corp (Sociedad No Domiciliada en el Peru)",
+          "tipo": "Acciones",
+          "valor": 17000
+        },
+        {
+          "nombre": "Acres Investments S.A.",
+          "tipo": "Acciones",
+          "valor": 1049576
+        },
+        {
+          "nombre": "Peru Hotel y Servicios S.A.",
+          "tipo": "Acciones",
+          "valor": 1
+        },
+        {
+          "nombre": "Peru Hotel Holding S.A.",
+          "tipo": "Acciones",
+          "valor": 100000
+        },
+        {
+          "nombre": "Acres Investments Ltd (Sociedad No Domiciliada en el Peru)",
+          "tipo": "Acciones",
+          "valor": 34000
+        },
+        {
+          "nombre": "Peruval Corp S.A. (Sociedad No Domiciliada en el Peru)",
+          "tipo": "Acciones",
+          "valor": 17000
+        },
+        {
+          "nombre": "Peru Hotel Aguas Calientes S.A.",
+          "tipo": "Acciones",
+          "valor": 1
+        }
+      ],
+      "patrimonio": {
+        "inmuebles": 0,
+        "muebles": 0,
+        "empresas": 1217581
+      },
+      "sentenciasPenales": [],
+      "sentenciasObligaciones": [],
+      "adicional": [
+        "Antes partido solidaridad nacional.",
+        "Se han declarado solo 5 items, la información completa sobre cargos gerenciales y directivos obra inscrita en sunarp y por ende es información pública (principio de publicidad registral)",
+        "Presenté mi renuncia al cargo de alcalde metropolitano de lima el día 13 de octubre del 2025.",
+        "Tengo el cargo de presidente del partido político renovación popular desde el 04/06/2025.",
+        "Se han declarado solo las sociedades donde se tiene la propiedad actual de acciones, no así las sociedades que el declarante haya tenido alguna participación durante su vida y/o donde aparezca como socio fundador en sunarp. Solo se declaran sociedades comerciales no asociaciones civiles sin fines de lucro. Lo anterior ya fue objetivo de pronunciamiento de las autoridades electorales. Nos remitimos a la información de sunarp (principio de publicidad registral)"
+      ]
+    },
+    {
+      "slug": "somos-peru",
+      "puesto": 2,
+      "partido": "Somos Perú",
+      "organizacion": "Partido Democratico Somos Peru",
+      "color": "#d7263d",
+      "intencion": [
+        18.2,
+        17.2
+      ],
+      "nombre": "Carlos Ricardo Bruce Montes de Oca",
+      "nombreCorto": "Carlos Bruce",
+      "apellido": "Bruce",
+      "cargo": "Alcalde Provincial",
+      "numeroLista": null,
+      "estado": "Inscrito",
+      "edad": 69,
+      "nacimiento": "24/02/1957",
+      "lugar": "San Isidro, Lima",
+      "foto": "img/somos-peru.jpg",
+      "experiencia": [
+        {
+          "anios": "2023–2026",
+          "cargo": "Alcalde Distrital",
+          "lugar": "Municipalidad Distrital de Santiago de Surco",
+          "nota": ""
+        },
+        {
+          "anios": "2021–2022",
+          "cargo": "Gerente General",
+          "lugar": "Afe Gourmet SAC",
+          "nota": "Con asiento c00003 se inscribe la aceptación a la renuncia del cargo de gerente general y presidente de afe gourmet sac"
+        },
+        {
+          "anios": "2019",
+          "cargo": "Ministro",
+          "lugar": "Ministerio de Vivienda, Construcción y Saneamiento",
+          "nota": ""
+        },
+        {
+          "anios": "2006–2019",
+          "cargo": "Congresista de la Republica",
+          "lugar": "Congreso de la Republica",
+          "nota": "Se considera 3 periodos consecutivos en el cargo de congresita 2006-2011, 2011-2026, 2016-2019"
+        },
+        {
+          "anios": "2017–2018",
+          "cargo": "Ministro",
+          "lugar": "Ministerio de Vivienda, Construcción y Saneamiento",
+          "nota": ""
+        }
+      ],
+      "formacion": [
+        {
+          "nivel": "Maestría",
+          "titulo": "Título Universitario Oficial de Máster Universitario en Planificación Territorial y Gestión Ambiental (Grado de Maestro)",
+          "centro": "Universitat de Barcelona",
+          "anio": "2021",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Economista",
+          "centro": "Universidad de Lima",
+          "anio": "1997",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Bachiller en Economía",
+          "centro": "Universidad de Lima",
+          "anio": "1988",
+          "nota": ""
+        }
+      ],
+      "cargosEleccion": [
+        {
+          "anios": "2022–2026",
+          "cargo": "Alcalde Distrital",
+          "org": "Avanza Pais - Partido de Integracion Social",
+          "nota": "Desde el año 2023"
+        },
+        {
+          "anios": "2016–2021",
+          "cargo": "Congresista de la República",
+          "org": "Peruanos por el Kambio",
+          "nota": ""
+        }
+      ],
+      "cargosPartido": [
+        {
+          "anios": "2004–2005",
+          "cargo": "Comité Ejecutivo Nacional - Secretarios Generales Colegiados",
+          "org": "Peru Posible"
+        },
+        {
+          "anios": "2010–2011",
+          "cargo": "Jefe del Comando Nacional de Campaña",
+          "org": "Perú Posible"
+        }
+      ],
+      "renuncias": [
+        {
+          "anio": "2024",
+          "org": "Avanza Pais - Partido de Integracion Social"
+        },
+        {
+          "anio": "2021",
+          "org": "Accion Popular"
+        }
+      ],
+      "ingresos": {
+        "anio": "2025",
+        "publico": 198900,
+        "privado": 0,
+        "total": 198900
+      },
+      "inmuebles": [],
+      "muebles": [
+        {
+          "tipo": "Camioneta Land Rover - Discovery 4 2011",
+          "valor": 43680,
+          "nota": ""
+        },
+        {
+          "tipo": "Camioneta Lexus Lc 570 Plus 2016",
+          "valor": 134640,
+          "nota": ""
+        }
+      ],
+      "empresas": [
+        {
+          "nombre": "Inversiones Eivissa SAC",
+          "tipo": "Acciones",
+          "valor": 2700
+        },
+        {
+          "nombre": "Inversiones Proton SAC",
+          "tipo": "Participaciones",
+          "valor": 350760
+        },
+        {
+          "nombre": "Afegourmet SAC",
+          "tipo": "Participaciones",
+          "valor": 7500
+        }
+      ],
+      "patrimonio": {
+        "inmuebles": 0,
+        "muebles": 178320,
+        "empresas": 360960
+      },
+      "sentenciasPenales": [],
+      "sentenciasObligaciones": [],
+      "adicional": [
+        "Actualmente es miembro de la comisión consultiva de la maestria en gestión de las ciudades de la universidad de lima"
+      ]
+    },
+    {
+      "slug": "avanza-pais",
+      "puesto": 3,
+      "partido": "Avanza País",
+      "organizacion": "Avanza Pais - Partido de Integracion Social",
+      "color": "#d4127a",
+      "intencion": [
+        11.3,
+        13
+      ],
+      "nombre": "Francis James Allison Oyague",
+      "nombreCorto": "Francis Allison",
+      "apellido": "Allison",
+      "cargo": "Alcalde Provincial",
+      "numeroLista": null,
+      "estado": "Inscrito",
+      "edad": 56,
+      "nacimiento": "01/03/1970",
+      "lugar": "Miraflores, Lima",
+      "foto": "img/avanza-pais.jpg",
+      "experiencia": [
+        {
+          "anios": "2023–2026",
+          "cargo": "Alcalde",
+          "lugar": "Municipalidad Distrital de Magdalena del Mar",
+          "nota": ""
+        },
+        {
+          "anios": "2008–2023",
+          "cargo": "Gerente General",
+          "lugar": "Allison Abogados Asociados SAC",
+          "nota": "Renuncia a cargo de gerente general de fecha 02 de enero de 2023, el estudio en mención contaba con sede en el distrito de chilca, provincia de cañete en el periodo 2016 - 2018."
+        },
+        {
+          "anios": "2015–2018",
+          "cargo": "Alcalde",
+          "lugar": "Municipalida Distrital de Magdalena del Mar",
+          "nota": "Alcalde electo para el periodo 2011 - 2014, se declara por transparencia."
+        }
+      ],
+      "formacion": [
+        {
+          "nivel": "Doctorado",
+          "titulo": "Doctor en Derecho",
+          "centro": "Universidad Alas Peruanas SA",
+          "anio": "2014",
+          "nota": "Concluí los estudios de doctorado en la universidad de san martin de porres, obtuve el grado de doctor por la universidad alas peruanas - información verificable en plataforma pública de sunedu."
+        },
+        {
+          "nivel": "Maestría",
+          "titulo": "Maestro en Derecho en Ciencias Penales",
+          "centro": "Universidad Alas Peruanas SA",
+          "anio": "2013",
+          "nota": "Concluí los estudios de maestría en la universidad de san martin de porres, obtuve el grado de maestro por la universidad alas peruanas - información verificable en plataforma pública de sunedu."
+        },
+        {
+          "nivel": "Otro posgrado",
+          "titulo": "Doctorado en Gobierno y Politica Pública",
+          "centro": "Instituto de Gobierno y de Gestión Pública Universidad de San Martin de Porres",
+          "anio": "2016",
+          "nota": "Aún sin titulo."
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Abogado",
+          "centro": "Universidad de San Martin de Porres",
+          "anio": "1997",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Bachiller en Derecho",
+          "centro": "Universidad de San Martin de Porres",
+          "anio": "1997",
+          "nota": ""
+        }
+      ],
+      "cargosEleccion": [
+        {
+          "anios": "2022–2026",
+          "cargo": "Alcalde Distrital",
+          "org": "Alianza para el Progreso",
+          "nota": ""
+        },
+        {
+          "anios": "2015–2018",
+          "cargo": "Alcalde Distrital",
+          "org": "Magdalena Avanza",
+          "nota": "Alcalde electo para el 2003 - 2006, reelecto para el periodo 2007 - 2010 y reelecto para el periodo 2011-2014"
+        }
+      ],
+      "cargosPartido": [
+        {
+          "anios": "2004–2005",
+          "cargo": "Secretario Provincial Lima Cercado",
+          "org": "Partido Popular Cristiano - PPC"
+        },
+        {
+          "anios": "2005",
+          "cargo": "Presidente del Comité Electoral Nacional",
+          "org": "Partido Popular Cristiano - PPC"
+        }
+      ],
+      "renuncias": [
+        {
+          "anio": "2025",
+          "org": "Alianza para el Progreso"
+        },
+        {
+          "anio": "2021",
+          "org": "Partido Popular Cristiano - PPC"
+        }
+      ],
+      "ingresos": {
+        "anio": "2025",
+        "publico": 123618.44,
+        "privado": 0,
+        "total": 123618.44
+      },
+      "inmuebles": [
+        {
+          "tipo": "Terreno",
+          "valor": 70000,
+          "nota": "Terreno en posesión, está incluido en el autovalúo del inmueble principal (acumulación tributaria solicitada con fecha 21.02.2014) sociedad conyugal."
+        },
+        {
+          "tipo": "Inmueble",
+          "valor": 600000,
+          "nota": "Inmueble construido sobre terreno en posesión - sociedad conyugal - el autovalúo se consigna al 2024."
+        },
+        {
+          "tipo": "Terreno",
+          "valor": 84500,
+          "nota": "Posesión adquirida al precio de veinticinco mil dólares américanos, estableciendose al tipo de cambio de sunat de fecha 19.06.2026 (S/ 3.38) - autovalúo consignado al año 2022 - sociedad conyugal"
+        }
+      ],
+      "muebles": [
+        {
+          "tipo": "Station Wagon Toyota del Año 1992",
+          "valor": 6000,
+          "nota": "Vehiculo robado."
+        },
+        {
+          "tipo": "Embarcación Tipo Ballota de Fibra de Vidrio Usada de 16\"",
+          "valor": 20280,
+          "nota": "El valor del bien corresponde a 6000 dolares americanos. Se ha calculado al tipo de cambio sunat del día 19.06.2026 (S/ 3.38)"
+        }
+      ],
+      "empresas": [
+        {
+          "nombre": "Allison Abogados y Asesores SAC",
+          "tipo": "Acciones",
+          "valor": 999
+        },
+        {
+          "nombre": "Allison Abogados Asociados SAC",
+          "tipo": "Acciones",
+          "valor": 885702
+        },
+        {
+          "nombre": "Empresa Pucará Af Contratistas SAC",
+          "tipo": "Acciones",
+          "valor": 999
+        },
+        {
+          "nombre": "Soluciones Ambientales Valle Verde SAC",
+          "tipo": "Acciones",
+          "valor": 999
+        },
+        {
+          "nombre": "Spot Inversiones SAC",
+          "tipo": "Acciones",
+          "valor": 500
+        },
+        {
+          "nombre": "Allison Producciones SAC",
+          "tipo": "Acciones",
+          "valor": 990
+        },
+        {
+          "nombre": "Armonia Producciones SAC",
+          "tipo": "Acciones",
+          "valor": 990
+        }
+      ],
+      "patrimonio": {
+        "inmuebles": 754500,
+        "muebles": 26280,
+        "empresas": 891179
+      },
+      "sentenciasPenales": [
+        {
+          "materia": "Omisión de Declaración y Otros",
+          "fuero": "United States District Court Southern District Of Florida - Miami Division",
+          "fecha": "28/01/2010",
+          "fallo": "Detención 4 días y multa (sin efectos jurídicos en el perú)",
+          "estado": "Efectiva · Pena Cumplida",
+          "nota": "Sentencia sin efectos jurídicos en el perú, al no haberse aplicado el procedimiento de execuator conforme al codigo civil - cosa juzgada electoral conforme a los pronunciamientos del jurado nacional de elecciones en los procesos electorales 2010 y 2022. Se declara por transparencia."
+        }
+      ],
+      "sentenciasObligaciones": [],
+      "adicional": [
+        "Muebles y equipos de oficina de caoba y otros valorizados en S/ 70000 soles - sociedad conyugal.",
+        "No he declarado renta de acciones de empresas porque no han generado utilidades.",
+        "Objetos de arte: 04 óleos y una escultura valorizados en doce mil dólares (tipo de cambio sunat S/ 3.38 al 19.06.2026) cuyo detalle es: 1) óleo sobre lienzo del artista josé tola. 2) ólero sobre lienzo del pintor carlos revilla. 3) óleo sobre lienzo del pintor david herskoviz. 4) óleo sobre lienzo del pintor venancio shinki. 5) escultura del artista josé tola - sociedad conyugal",
+        "Objetos de arte: Pinturas de la escuela cuzqueña - lima valorizadas en S/ 55 000 soles - sociedad conyugal",
+        "Arma: Pistola marca rugger modelo lcp - calibre 380 auto valorizada en S/ 1995.00 soles.",
+        "En la empresa allison abogados y asesores sac (empresa sin movimiento en su objeto social tributario) tengo la condición de gerente general. En la empresa soluciones ambientales valle verde sac (empresa sin movimiento en su objeto social tributario) tengo la condición de gerente general. En la empresa allison producciones sac (empresa sin movimiento en su objeto social tributario tengo la condición de gerente general).",
+        "Pinturas: 03 oleos valorizados en $ 15000 (tipo de cambio sunat del 19.06.2026 a S/ 3.38) cuyo detalle es: 1) óleo sobre lienzo del artista venancio shinki. 2) óleo sobre lienzo del artista gerardo chavez. 3) oleo sobre lienzo del artista gerardo chavez - sociedad conyugal.",
+        "Joyas de oro valorizadas en S/ 35000 soles.",
+        "Armas - glock modelo 25 calibre 3.80 acp cuyo valos es de S/ 2352.00 soles.",
+        "Muebles antiguedades valorizados en S/ 70000 soles - sociedad conyugal.",
+        "En el año 2008 renuncié a la organización política Renovación Popular, antes Partido Político Solidaridad Nacional.",
+        "En julio del año 2025 se creó la asociación instituto ley y orden, designandome como presidente de la misma, renunciando a dicho cargo el 11 de junio de 2026 en proceso de inscripcion en los registros públicos (título N.° 226-1943361)",
+        "En el año 2024, el partido alianza para el progreso a través del secretario nacional ejecutivo y del secretario nacional territorial, me encomendó la responsabilidad política de lima metropolitana, lo declaro por transparencia.",
+        "En el año 2020 se emitió la resolución de alcaldía N.° 438-2020/mdsm de fecha 15.09.2020, mediante la cual se me designó como asesor ad honorem de la alta dirección de la municipalidad distrital de san miguel, no existiendo vinculo laboral alguno, lo declaro por transparencia.",
+        "Arma glock modelo 19gen5 calibre 9x19mm valorizada en S/ 3600.00 soles",
+        "Mi esposa carla robbiano montes de allison, ha sido declarada heredera de su padre, conforme la sucesión intestada inscrita en registros públicos, se declara sólo por transparencia."
+      ]
+    },
+    {
+      "slug": "podemos-peru",
+      "puesto": 4,
+      "partido": "Podemos Perú",
+      "organizacion": "Podemos Peru",
+      "color": "#3a2f9b",
+      "intencion": [
+        5.8,
+        7.1
+      ],
+      "nombre": "Daniel Belizario Urresti Elera",
+      "nombreCorto": "Daniel Urresti",
+      "apellido": "Urresti",
+      "cargo": "Alcalde Provincial",
+      "numeroLista": null,
+      "estado": "Inscrito",
+      "edad": 70,
+      "nacimiento": "25/08/1956",
+      "lugar": "Huancabamba, Piura",
+      "foto": "img/podemos-peru.jpg",
+      "experiencia": [
+        {
+          "anios": "2020–2021",
+          "cargo": "Congresista",
+          "lugar": "Congreso de la Republica",
+          "nota": ""
+        },
+        {
+          "anios": "2019",
+          "cargo": "Gerente de Seguridad Ciudadana",
+          "lugar": "Municipalidad de los Olivos",
+          "nota": ""
+        }
+      ],
+      "formacion": [
+        {
+          "nivel": "Posgrado",
+          "titulo": "Ingenieria Electrónica con Mención en Telemática",
+          "centro": "Universidad Federico Villareal",
+          "anio": "",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Bachiller",
+          "centro": "Escuela Militar de Chorrillos",
+          "anio": "2008",
+          "nota": ""
+        }
+      ],
+      "cargosEleccion": [
+        {
+          "anios": "2020–2021",
+          "cargo": "Congresista de la República",
+          "org": "Podemos Peru",
+          "nota": "Congresista"
+        }
+      ],
+      "cargosPartido": [
+        {
+          "anios": "2020–hoy",
+          "cargo": "Secretaría Nacional de Política e Ideología",
+          "org": "Podemos Peru"
+        }
+      ],
+      "renuncias": [],
+      "ingresos": {
+        "anio": "2025",
+        "publico": 144000,
+        "privado": 0,
+        "total": 144000
+      },
+      "inmuebles": [
+        {
+          "tipo": "Registro de Predios",
+          "valor": 0,
+          "nota": "Partida cerrada"
+        },
+        {
+          "tipo": "Registro de Predios",
+          "valor": 281717.32,
+          "nota": "Bien inmueble de sociedad conyugal"
+        }
+      ],
+      "muebles": [
+        {
+          "tipo": "Mercedes Benz 2020 Color Azul",
+          "valor": 170000,
+          "nota": "Bien mueble de sociedad conyugal"
+        },
+        {
+          "tipo": "Volvo Año 2021 Color Gris Negro",
+          "valor": 101100,
+          "nota": "Bien mueble de sociedad conyugal"
+        }
+      ],
+      "empresas": [],
+      "patrimonio": {
+        "inmuebles": 281717.32,
+        "muebles": 271100,
+        "empresas": 0
+      },
+      "sentenciasPenales": [
+        {
+          "materia": "Difamación Agravada",
+          "fuero": "17º Juzgado Penal",
+          "fecha": "15/08/2017",
+          "fallo": "1 año de pena suspendida de libertad y el pago de una reparación civil",
+          "estado": "Suspendida · Pena Cumplida",
+          "nota": "Rehabilitado"
+        }
+      ],
+      "sentenciasObligaciones": [],
+      "adicional": [
+        "De lo declarado en el punto 2: Más de un mes después, aún no ha cumplido con devolver el expediente al juzgado de origen y le permita resolver el pedido formulado de anular o cancelar todos los antecedentes policiales, penales y judiciales.",
+        "Tengo que declarar que, mediante Sentencia del Tribunal Constitucional N° 44/2026 (Expediente N° 02939-2025-PHC/TC), dictada el 6 de febrero de 2026, el Pleno del Tribunal Constitucional declaró nula la sentencia condenatoria y el recurso de nulidad que confirmó la condena de doce años de pena privativa de libertad en mi contra por homicidio calificado dictados en el Expediente 00016-2014-0-5001-SP-PE-01.",
+        "De lo anteriormente declarado, con fecha 10/06/2026 se solicitó la eliminacion de antecedentes penales, judiciales y policiales por la nulidad absoluta de la condena dictada en mi contra. No obstante, pese a haber requerido al Juzgado Penal Supraprovincial Liquidador Transitorio el cumplimiento de plazos, mediante escrito de fecha 18/06/2026, este, con resolucion S/N de fecha 18/06/2026 de reservó la resolución del pedido debido a que la instancia superior."
+      ]
+    },
+    {
+      "slug": "fuerza-popular",
+      "puesto": 5,
+      "partido": "Fuerza Popular",
+      "organizacion": "Fuerza Popular",
+      "color": "#e8701a",
+      "intencion": [
+        7.1,
+        6.3
+      ],
+      "nombre": "Samuel Marcos Daza Taype",
+      "nombreCorto": "Samuel Daza",
+      "apellido": "Daza",
+      "cargo": "Alcalde Provincial",
+      "numeroLista": null,
+      "estado": "Inscrito",
+      "edad": 53,
+      "nacimiento": "06/10/1972",
+      "lugar": "Comas, Lima",
+      "foto": "img/fuerza-popular.jpg",
+      "experiencia": [
+        {
+          "anios": "2023–2026",
+          "cargo": "Alcalde",
+          "lugar": "Municipalidad de Ancón",
+          "nota": ""
+        },
+        {
+          "anios": "2022",
+          "cargo": "Consultor FAG",
+          "lugar": "Ministerio de Economía y Finanzas",
+          "nota": ""
+        },
+        {
+          "anios": "2021",
+          "cargo": "Director General OGAME",
+          "lugar": "Ministerio de Transportes y Comunicaciones",
+          "nota": "Director General de la Oficina General de Articulación, Monitoreo y Evaluación e Impacto del Ministerio de Transportes y Comunicaciones."
+        },
+        {
+          "anios": "2010–2021",
+          "cargo": "Gerente",
+          "lugar": "Traffik de Economía & Consultoría SAC",
+          "nota": ""
+        }
+      ],
+      "formacion": [
+        {
+          "nivel": "Maestría",
+          "titulo": "Planificación, Economía y Operaciones de Transporte",
+          "centro": "Universidad Pablo de Olavide",
+          "anio": "2023",
+          "nota": "Pendiente de inscripción en sunedu"
+        },
+        {
+          "nivel": "Otro posgrado",
+          "titulo": "Máster en Tráfico y Seguridad Vial y Sus Intervenciones",
+          "centro": "Universitat de Valencia",
+          "anio": "2017",
+          "nota": "Titulo propio de máster en tráfico y seguridad vial y sus intervenciones (grado de maestro) diploma obtenido 07/09/2017 reconocimiento: 18/02/2022"
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Ingeniero de Transportes",
+          "centro": "Universidad Nacional Federico Villarreal",
+          "anio": "2004",
+          "nota": ""
+        }
+      ],
+      "cargosEleccion": [
+        {
+          "anios": "2022–2026",
+          "cargo": "Alcalde Distrital",
+          "org": "Podemos Peru",
+          "nota": ""
+        }
+      ],
+      "cargosPartido": [],
+      "renuncias": [
+        {
+          "anio": "2025",
+          "org": "Podemos Peru"
+        }
+      ],
+      "ingresos": {
+        "anio": "2025",
+        "publico": 108531,
+        "privado": 0,
+        "total": 108531
+      },
+      "inmuebles": [
+        {
+          "tipo": "Predio",
+          "valor": 55000,
+          "nota": "Contrato compraventa notariado."
+        },
+        {
+          "tipo": "Registro de Predios",
+          "valor": 272000,
+          "nota": "Dpto b, 5° piso -ancon"
+        },
+        {
+          "tipo": "Predio Parcela",
+          "valor": 73260,
+          "nota": "Parcela a hauaral, contrato de compraventa notariado."
+        },
+        {
+          "tipo": "Predio",
+          "valor": 133200,
+          "nota": "Contrato compraventa notariado."
+        },
+        {
+          "tipo": "Predio",
+          "valor": 85000,
+          "nota": "Contrato compra venta no notariado. Se cuenta con constancia de posesión."
+        },
+        {
+          "tipo": "Registro de Predios",
+          "valor": 322933,
+          "nota": "Crédito hipotecario-bcp."
+        },
+        {
+          "tipo": "Predio Huaral",
+          "valor": 73260,
+          "nota": "Proyecto huando"
+        }
+      ],
+      "muebles": [
+        {
+          "tipo": "Marca Audi",
+          "valor": 30000,
+          "nota": ""
+        }
+      ],
+      "empresas": [],
+      "patrimonio": {
+        "inmuebles": 1014653,
+        "muebles": 30000,
+        "empresas": 0
+      },
+      "sentenciasPenales": [],
+      "sentenciasObligaciones": [
+        {
+          "materia": "Familia / Alimentaria",
+          "fuero": "5° Juzgado de Paz Letrado",
+          "fallo": "Fija pensión de alimentos a menor de su menor hijo",
+          "nota": ""
+        }
+      ],
+      "adicional": []
+    },
+    {
+      "slug": "alianza-para-el-progreso",
+      "puesto": 6,
+      "partido": "Alianza para el Progreso",
+      "organizacion": "Alianza para el Progreso",
+      "color": "#1560b8",
+      "intencion": [
+        4.8,
+        4.4
+      ],
+      "nombre": "Elio Fernando Riera Garro",
+      "nombreCorto": "Elio Riera",
+      "apellido": "Riera",
+      "cargo": "Alcalde Provincial",
+      "numeroLista": null,
+      "estado": "Inscrito",
+      "edad": 43,
+      "nacimiento": "08/05/1983",
+      "lugar": "Jesús María, Lima",
+      "foto": "img/alianza-para-el-progreso.jpg",
+      "experiencia": [
+        {
+          "anios": "2012–2026",
+          "cargo": "Gerente General",
+          "lugar": "Riera Law Office Sociedad Anonima",
+          "nota": ""
+        },
+        {
+          "anios": "2016–2018",
+          "cargo": "Abogado",
+          "lugar": "Tekton Corp S.A.C",
+          "nota": ""
+        },
+        {
+          "anios": "2014–2018",
+          "cargo": "Docente",
+          "lugar": "Universidad Peruana de Ciencias Aplicadas S.A.C",
+          "nota": ""
+        },
+        {
+          "anios": "2016",
+          "cargo": "Abogado",
+          "lugar": "Panapex S.A",
+          "nota": ""
+        },
+        {
+          "anios": "2015–2016",
+          "cargo": "Docente",
+          "lugar": "Universidad Cesar Vallejo S.A.C",
+          "nota": "Fuidocente en las sedes de ate ysjl"
+        }
+      ],
+      "formacion": [
+        {
+          "nivel": "Maestría",
+          "titulo": "Maestro en Derecho de la Empresa Sí",
+          "centro": "Universidad Peruana de Ciencias Aplicadas S.A.C.",
+          "anio": "2019",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Abogado",
+          "centro": "Universidad Peruana de Ciencias Aplicadas S.A.C.",
+          "anio": "2011",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Bachiller en Derecho",
+          "centro": "Universidad Peruana de Ciencias Aplicadas S.A.C.",
+          "anio": "2010",
+          "nota": ""
+        }
+      ],
+      "cargosEleccion": [],
+      "cargosPartido": [],
+      "renuncias": [
+        {
+          "anio": "2022",
+          "org": "Fuerza Popular"
+        }
+      ],
+      "ingresos": {
+        "anio": "2025",
+        "publico": 0,
+        "privado": 78122,
+        "total": 78122
+      },
+      "inmuebles": [
+        {
+          "tipo": "Registro de Predios",
+          "valor": 80061.76,
+          "nota": ""
+        },
+        {
+          "tipo": "Registro de Predios",
+          "valor": 116452.05,
+          "nota": ""
+        }
+      ],
+      "muebles": [
+        {
+          "tipo": "Valoradquiridoendólares56990.00 - Partida Registral 55246192",
+          "valor": 213256.5,
+          "nota": ""
+        },
+        {
+          "tipo": "Partida Registral : 54236259",
+          "valor": 5100,
+          "nota": ""
+        }
+      ],
+      "empresas": [
+        {
+          "nombre": "Victorems.a.c",
+          "tipo": "Acciones",
+          "valor": 10
+        },
+        {
+          "nombre": "Tektonservicios Legalessac",
+          "tipo": "Acciones",
+          "valor": 1
+        },
+        {
+          "nombre": "Riera Lawoffice SAC",
+          "tipo": "Acciones",
+          "valor": 1
+        },
+        {
+          "nombre": "Global Traktor Sa.c",
+          "tipo": "Acciones",
+          "valor": 1
+        }
+      ],
+      "patrimonio": {
+        "inmuebles": 196513.81,
+        "muebles": 218356.5,
+        "empresas": 13
+      },
+      "sentenciasPenales": [],
+      "sentenciasObligaciones": [
+        {
+          "materia": "Violencia Familiar",
+          "fuero": "9no Juzgado de Familia Suebsp de Violencia Contra la Mujer",
+          "fallo": "Otorgar medidas de proteccionar- chivado mediante pronunciamiento fiscal de fecha 15 de noviembre 2023, que declaro consentido yarchivado el proceso (carpeta fiscal 5021-2023)",
+          "nota": "Exp. 24094-2019-0-3202-jr-ft-11 y exp.24086-2019-03202-jr-rt-9 con fallo de déjese sin efecto las medidas de proteccion, contenida en la resolucion número uno, de fecha 6/08/2019, por esta judicatura yarchivese definitivamente."
+        },
+        {
+          "materia": "Familia / Alimentaria",
+          "fuero": "4to Juzgado de Familia de Lima Este",
+          "fallo": "Revocar la resolucion N.° 8 del 19 de set. De dos mil dieciocho (19/09/2018 en el extremo apelado y reformandola - ordena que elio fernando riera garro acuda a su menor hijo con una pensión de s / 1,800",
+          "nota": ""
+        }
+      ],
+      "adicional": []
+    },
+    {
+      "slug": "accion-popular",
+      "puesto": 7,
+      "partido": "Acción Popular",
+      "organizacion": "Accion Popular",
+      "color": "#9c1b22",
+      "intencion": [
+        3.6,
+        4
+      ],
+      "nombre": "Carlos Alberto Tejada Noriega",
+      "nombreCorto": "Carlos Tejada",
+      "apellido": "Tejada",
+      "cargo": "Alcalde Provincial",
+      "numeroLista": null,
+      "estado": "Inscrito",
+      "edad": 69,
+      "nacimiento": "11/11/1956",
+      "lugar": "San Isidro, Lima",
+      "foto": "img/accion-popular.jpg",
+      "experiencia": [
+        {
+          "anios": "2015–2026",
+          "cargo": "Medico Cirujano Urólogo",
+          "lugar": "Niuvida SAC",
+          "nota": ""
+        },
+        {
+          "anios": "2005–2026",
+          "cargo": "Medico Cirujano Urólogo",
+          "lugar": "Clinica del Bienestar SAC",
+          "nota": ""
+        },
+        {
+          "anios": "1994–2026",
+          "cargo": "Médico Cirujano Urólogo",
+          "lugar": "Clinica Miraflores SAC",
+          "nota": ""
+        }
+      ],
+      "formacion": [
+        {
+          "nivel": "Posgrado",
+          "titulo": "Gestión Pública",
+          "centro": "Universidad Nacional Mayor de San Marcos",
+          "anio": "",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Medico Cirujano (Duplicado Segun Rr-02924-R-12)",
+          "centro": "Universidad Nacional Mayor de San Marcos",
+          "anio": "2012",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Medico Cirujano Especialista en Urologia",
+          "centro": "Universidad Nacional Mayor de San Marcos",
+          "anio": "2000",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Bachiller en Medicina",
+          "centro": "Universidad Nacional Federico Villarreal",
+          "anio": "1982",
+          "nota": ""
+        },
+        {
+          "nivel": "Universitaria",
+          "titulo": "Medico Cirujano",
+          "centro": "Universidad Nacional Federico Villarreal",
+          "anio": "1982",
+          "nota": ""
+        }
+      ],
+      "cargosEleccion": [
+        {
+          "anios": "2019–2022",
+          "cargo": "Alcalde Distrital",
+          "org": "Accion Popular",
+          "nota": ""
+        },
+        {
+          "anios": "2007–2010",
+          "cargo": "Alcalde Distrital",
+          "org": "Democracia con Valores",
+          "nota": ""
+        }
+      ],
+      "cargosPartido": [],
+      "renuncias": [
+        {
+          "anio": "2024",
+          "org": "Peru Moderno"
+        },
+        {
+          "anio": "2011",
+          "org": "Valores Peru"
+        }
+      ],
+      "ingresos": {
+        "anio": "2025",
+        "publico": 0,
+        "privado": 209839,
+        "total": 209839
+      },
+      "inmuebles": [
+        {
+          "tipo": "Inmueble",
+          "valor": 504025.38,
+          "nota": ""
+        }
+      ],
+      "muebles": [
+        {
+          "tipo": "Vehículo",
+          "valor": 30546.2,
+          "nota": ""
+        },
+        {
+          "tipo": "En Condición de Baja",
+          "valor": 0,
+          "nota": ""
+        },
+        {
+          "tipo": "En Condición de Baja",
+          "valor": 0,
+          "nota": ""
+        }
+      ],
+      "empresas": [],
+      "patrimonio": {
+        "inmuebles": 504025.38,
+        "muebles": 30546.2,
+        "empresas": 0
+      },
+      "sentenciasPenales": [],
+      "sentenciasObligaciones": [],
+      "adicional": [
+        "Empresas con bajas de oficio: Salud activa sac (31/10/2024) y lifestruck sa (31/01/2025)"
+      ]
+    }
+  ]
+}

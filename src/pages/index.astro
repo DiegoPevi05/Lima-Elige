@@ -1,0 +1,381 @@
+---
+import data from '../data/candidatos.json';
+import '../styles/tailwind.css';
+import '../styles/global.css';
+import CandidateCarousel from '../components/CandidateCarousel.tsx';
+
+const { candidatos, encuesta } = data;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const soles = (n) => 'S/ ' + new Intl.NumberFormat('es-PE', { maximumFractionDigits: 0 }).format(n);
+const pct = (n) => n.toFixed(1).replace('.', ',');
+const maxV = Math.max(...candidatos.flatMap((c) => c.intencion));
+const delta = (c) => {
+  const d = +(c.intencion[1] - c.intencion[0]).toFixed(1);
+  return (d > 0 ? '+' : d < 0 ? '−' : '') + pct(Math.abs(d));
+};
+const [mA, mB] = encuesta.mediciones;
+const sentencias = (c) => c.sentenciasPenales.length + c.sentenciasObligaciones.length;
+const words = (s) => s.split(' ');
+---
+
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lima 2026: siete hojas de vida</title>
+    <meta name="description" content="Las siete candidaturas con mayor intención de voto en Lima Metropolitana, contadas con lo que cada una declaró en su hoja de vida ante el JNE." />
+    <meta name="theme-color" content="#dadfe0" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%2317212b%27/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <canvas id="escena" aria-hidden="true"></canvas>
+
+    <nav class="riel" aria-label="Candidaturas">
+      {candidatos.map((c) => (
+        <a href={`#${c.slug}`} style={`--acc:${c.color}`} data-riel={c.slug}>
+          <span>{c.apellido}</span>
+        </a>
+      ))}
+    </nav>
+
+    <main>
+      <header class="portada" data-shape="flow">
+        <h1>
+          <span>Lima elige.</span>
+          <span>Siete hojas de vida, lado a lado.</span>
+        </h1>
+        <p class="bajada">
+          Las siete candidaturas con mayor intención de voto en Lima Metropolitana, contadas con lo que cada una declaró ante el Jurado Nacional de
+          Elecciones: estudios, trabajos, ingresos, bienes y sentencias.
+        </p>
+
+        <ol class="sondeo">
+          {candidatos.map((c) => (
+            <li style={`--acc:${c.color}`}>
+              <a href={`#${c.slug}`}>
+                <span class="sondeo-nombre">
+                  {c.nombreCorto}
+                  <small>{c.partido}</small>
+                </span>
+                <span class="sondeo-barra" aria-hidden="true">
+                  <i style={`--w:${(c.intencion[1] / maxV) * 100}%`} />
+                </span>
+                <span class="sondeo-num">{pct(c.intencion[1])}%</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+        <p class="nota">
+          Barras: {mB.toLowerCase()} de intención de voto. {encuesta.fuente ? `Fuente: ${encuesta.fuente}.` : 'Fuente de la encuesta no indicada.'} Mueve el
+          cursor: el campo de vectores gira a su alrededor.
+        </p>
+
+        <CandidateCarousel
+          client:visible
+          items={candidatos.map((c) => ({
+            slug: c.slug,
+            nombre: c.nombreCorto,
+            partido: c.partido,
+            color: c.color,
+            foto: base + c.foto,
+            intencion: pct(c.intencion[1]),
+          }))}
+        />
+      </header>
+
+      {candidatos.map((c) => (
+        <article class="cand" id={c.slug} data-shape="portrait" data-src={base + c.foto} data-accent={c.color} style={`--acc:${c.color}`}>
+          <section class="bloque entrada">
+            <p class="puesto">{c.puesto}.º en intención de voto</p>
+            <h2 aria-label={c.nombre}>
+              {words(c.nombre).map((w, wi) => (
+                <span class="palabra" aria-hidden="true">
+                  {[...w].map((ch, ci) => <span class="ch" style={`--i:${wi * 3 + ci}`}>{ch}</span>)}
+                </span>
+              ))}
+            </h2>
+            <p class="partido">
+              <b>{c.partido}</b> · postula a {c.cargo.toLowerCase()}{c.numeroLista ? ` n.º ${c.numeroLista}` : ''}
+            </p>
+            <dl class="cifras">
+              <div>
+                <dt>{mA}</dt>
+                <dd><span data-cuenta={c.intencion[0]}>{pct(c.intencion[0])}</span>%</dd>
+              </div>
+              <div>
+                <dt>{mB}</dt>
+                <dd><span data-cuenta={c.intencion[1]}>{pct(c.intencion[1])}</span>%</dd>
+              </div>
+              <div class="delta">
+                <dt>Diferencia</dt>
+                <dd>{delta(c)} <small>pts</small></dd>
+              </div>
+            </dl>
+            <img class="foto" src={base + c.foto} alt={`Foto de la hoja de vida de ${c.nombre}`} width="96" height="135" loading="lazy" />
+          </section>
+
+          <section class="bloque">
+            <h3>Quién es</h3>
+            <p class="dato-grande">
+              {c.edad} años. Nació en {c.lugar}.
+            </p>
+            <ul class="lista">
+              {c.formacion.map((f) => (
+                <li>
+                  <span class="cuando">{f.anio || f.nivel}</span>
+                  <span>
+                    <b>{f.titulo}</b>
+                    <em>{f.centro}{f.anio ? ` · ${f.nivel}` : ''}</em>
+                    {f.nota && <small>{f.nota}</small>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="bloque">
+            <h3>Dónde ha trabajado</h3>
+            <ul class="lista">
+              {c.experiencia.map((e) => (
+                <li>
+                  <span class="cuando">{e.anios}</span>
+                  <span>
+                    <b>{e.cargo}</b>
+                    <em>{e.lugar}</em>
+                    {e.nota && <small>{e.nota}</small>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="bloque">
+            <h3>Su paso por la política</h3>
+            {c.cargosEleccion.length > 0 ? (
+              <ul class="lista">
+                {c.cargosEleccion.map((e) => (
+                  <li>
+                    <span class="cuando">{e.anios}</span>
+                    <span>
+                      <b>{e.cargo}</b>
+                      <em>Elegido por {e.org}</em>
+                      {e.nota && <small>{e.nota}</small>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="vacio">No declaró cargos de elección popular anteriores.</p>
+            )}
+            {c.cargosPartido.length > 0 && (
+              <ul class="lista">
+                {c.cargosPartido.map((e) => (
+                  <li>
+                    <span class="cuando">{e.anios}</span>
+                    <span>
+                      <b>{e.cargo}</b>
+                      <em>Cargo partidario en {e.org}</em>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {c.renuncias.length > 0 && (
+              <p class="renuncias">
+                Renunció a{' '}
+                {c.renuncias.map((r, i) => (
+                  <>
+                    {i > 0 && (i === c.renuncias.length - 1 ? ' y a ' : ', a ')}
+                    <b>{r.org}</b> ({r.anio})
+                  </>
+                ))}
+                .
+              </p>
+            )}
+          </section>
+
+          <section class="bloque">
+            <h3>Lo que declaró tener</h3>
+            <p class="dato-grande">
+              {soles(c.ingresos.total)} <small>de ingresos en {c.ingresos.anio}</small>
+            </p>
+            <div class="reparto" role="img" aria-label={`Sector público ${soles(c.ingresos.publico)}, sector privado ${soles(c.ingresos.privado)}`}>
+              <i class="pub" style={`flex:${c.ingresos.publico}`} />
+              <i class="priv" style={`flex:${c.ingresos.privado}`} />
+            </div>
+            <p class="leyenda">
+              <span class="pub">Sector público {soles(c.ingresos.publico)}</span>
+              <span class="priv">Sector privado {soles(c.ingresos.privado)}</span>
+            </p>
+            <dl class="bienes">
+              <div>
+                <dt>Inmuebles</dt>
+                <dd>{c.inmuebles.length ? `${c.inmuebles.length} · ${soles(c.patrimonio.inmuebles)}` : 'Ninguno declarado'}</dd>
+              </div>
+              <div>
+                <dt>Vehículos y otros muebles</dt>
+                <dd>{c.muebles.length ? `${c.muebles.length} · ${soles(c.patrimonio.muebles)}` : 'Ninguno declarado'}</dd>
+              </div>
+              <div>
+                <dt>Acciones y participaciones</dt>
+                <dd>{c.empresas.length ? `${c.empresas.length} empresas · ${soles(c.patrimonio.empresas)}` : 'Ninguna declarada'}</dd>
+              </div>
+            </dl>
+            {c.empresas.length > 0 && <p class="empresas">{c.empresas.map((e) => e.nombre).join(', ')}.</p>}
+          </section>
+
+          <section class="bloque">
+            <h3>Sentencias que declaró</h3>
+            {sentencias(c) === 0 ? (
+              <p class="vacio">No declaró sentencias penales ni por obligaciones familiares, contractuales o laborales.</p>
+            ) : (
+              <ul class="fallos">
+                {c.sentenciasPenales.map((s) => (
+                  <li>
+                    <b>Penal: {s.materia.toLowerCase()}</b>
+                    <em>{s.fuero}{s.fecha ? `, ${s.fecha}` : ''}</em>
+                    <p>{s.fallo}</p>
+                    {s.estado && <p class="estado">{s.estado}</p>}
+                    {s.nota && <small>{s.nota}</small>}
+                  </li>
+                ))}
+                {c.sentenciasObligaciones.map((s) => (
+                  <li>
+                    <b>{s.materia}</b>
+                    <em>{s.fuero}</em>
+                    <p>{s.fallo}</p>
+                    {s.nota && <small>{s.nota}</small>}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {c.adicional.length > 0 && (
+              <details>
+                <summary>Leer lo que añadió en “información adicional” ({c.adicional.length})</summary>
+                <ul>
+                  {c.adicional.map((a) => <li>{a}</li>)}
+                </ul>
+              </details>
+            )}
+          </section>
+        </article>
+      ))}
+
+      <section class="comparar" id="comparar" data-shape="flow">
+        <h2>Las siete, de un vistazo</h2>
+        <div class="tabla-wrap" tabindex="0" role="region" aria-label="Comparación de candidaturas">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Candidatura</th>
+                <th scope="col">{mA}</th>
+                <th scope="col">{mB}</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Ingresos {candidatos[0].ingresos.anio}</th>
+                <th scope="col">Cargos electos previos</th>
+                <th scope="col">Sentencias declaradas</th>
+              </tr>
+            </thead>
+            <tbody>
+              {candidatos.map((c) => (
+                <tr style={`--acc:${c.color}`}>
+                  <th scope="row">
+                    <a href={`#${c.slug}`}>{c.nombreCorto}</a>
+                    <small>{c.partido}</small>
+                  </th>
+                  <td class="barra"><i style={`--w:${(c.intencion[0] / maxV) * 100}%`} /><span>{pct(c.intencion[0])}%</span></td>
+                  <td class="barra"><i style={`--w:${(c.intencion[1] / maxV) * 100}%`} /><span>{pct(c.intencion[1])}%</span></td>
+                  <td>{c.edad}</td>
+                  <td>{soles(c.ingresos.total)}</td>
+                  <td>{c.cargosEleccion.length}</td>
+                  <td>{sentencias(c)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <footer>
+          <p>
+            Todo lo que se lee aquí viene de la hoja de vida que cada candidatura registró ante el JNE para las Elecciones Regionales y Municipales 2026.
+            Los textos en mayúsculas se pasaron a minúsculas y se omitieron nombres de menores de edad; nada más se editó. Las fotos son las del mismo
+            registro.
+          </p>
+          <p>Una sentencia declarada no equivale a una condena vigente: lee el detalle y el estado de cada una.</p>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      import Lenis from 'lenis';
+      import { initScene } from '../scripts/scene.js';
+
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = [...document.querySelectorAll('[data-shape]')];
+      const sections = els.map((el) => ({ el, type: el.dataset.shape === 'portrait' ? 'portrait' : 'flow', src: el.dataset.src, accent: el.dataset.accent }));
+
+      const scene = initScene(document.getElementById('escena'), sections);
+      if (!scene) document.documentElement.classList.add('sin-webgl');
+
+      let lenis = null;
+      if (!reduce) {
+        lenis = new Lenis({ lerp: 0.11 });
+        const raf = (t) => {
+          lenis.raf(t);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      }
+      // Delegado, para que también cubra los enlaces que crea la isla de React.
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest?.('a[href^="#"]');
+        const target = a && document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        if (lenis) lenis.scrollTo(target, { duration: 1.6 });
+        else target.scrollIntoView();
+        history.replaceState(null, '', a.getAttribute('href'));
+      });
+
+      // Riel lateral: marca la candidatura en pantalla.
+      const riel = [...document.querySelectorAll('[data-riel]')];
+      let activo = null;
+      scene?.onFrame(({ index }) => {
+        const id = sections[index].el.id;
+        if (id === activo) return;
+        activo = id;
+        riel.forEach((a) => a.toggleAttribute('data-activo', a.dataset.riel === id));
+      });
+
+      // Al entrar cada bloque: letras del nombre y conteo de porcentajes.
+      const fmt = (n) => n.toFixed(1).replace('.', ',');
+      const contar = (el) => {
+        const fin = parseFloat(el.dataset.cuenta);
+        if (reduce) return;
+        const t0 = performance.now();
+        const paso = (t) => {
+          const k = Math.min(1, (t - t0) / 1100);
+          el.textContent = fmt(fin * (1 - Math.pow(1 - k, 4)));
+          if (k < 1) requestAnimationFrame(paso);
+        };
+        requestAnimationFrame(paso);
+      };
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            e.target.classList.add('visto');
+            e.target.querySelectorAll('[data-cuenta]').forEach(contar);
+            io.unobserve(e.target);
+          }
+        },
+        { threshold: 0.35 },
+      );
+      document.querySelectorAll('.entrada, .portada, .comparar').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
