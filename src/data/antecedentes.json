@@ -1,0 +1,60 @@
+{
+  "renovacion-popular": [
+    {
+      "fecha": "Marzo de 2026",
+      "texto": "La Fiscalía Anticorrupción abrió una investigación preliminar contra López Aliaga y quienes resulten responsables por el endeudamiento de más de S/ 4 000 millones de la Municipalidad de Lima mediante la emisión de bonos. Los presuntos delitos son colusión y negociación incompatible.",
+      "fuentes": [
+        { "medio": "LP Derecho", "url": "https://lpderecho.pe/fiscalia-investigara-lopez-aliaga-presunto-endeudamiento-s-4000-millones-mml/" },
+        { "medio": "Epicentro TV", "url": "https://epicentro.tv/lopez-aliaga-sera-investigado-por-endeudamiento-de-s-4-mil-millones/" }
+      ]
+    }
+  ],
+  "somos-peru": [
+    {
+      "fecha": "2025",
+      "texto": "El Ministerio Público lo incluyó como investigado, junto a funcionarios de la Municipalidad de Surco, por la demolición parcial de un inmueble vinculado a la congresista María Acuña. Los presuntos delitos, en etapa preliminar, son usurpación agravada, abuso de autoridad y usurpación de funciones.",
+      "fuentes": [
+        { "medio": "Canal N", "url": "https://canaln.pe/actualidad/carlos-bruce-investigado-desalojo-surco-acuna-n487927" },
+        { "medio": "LP Derecho", "url": "https://lpderecho.pe/carlos-bruce-demolicion-casa-maria-acuna/" }
+      ]
+    },
+    {
+      "fecha": "2019",
+      "texto": "Una fiscal de crimen organizado de Chiclayo lo mencionó, junto a otros cuatro congresistas, en el caso “Los Temerarios del Crimen”. Bruce, entonces ministro de Vivienda, calificó la investigación de absurda y negó cualquier irregularidad.",
+      "fuentes": [
+        { "medio": "Andina", "url": "https://andina.pe/agencia/noticia-carlos-bruce-califica-absurda-investigacion-su-contra-746319.aspx" }
+      ]
+    }
+  ],
+  "avanza-pais": [
+    {
+      "fecha": "2024",
+      "texto": "Fue señalado de haber encargado arreglos en la vivienda de la fiscal Elizabeth Peralta, quien en 2015 archivó una investigación por lavado de activos en su contra. Allison lo negó: dijo que el archivo es de 2015 y que Peralta fue nombrada fiscal de lavado de activos después.",
+      "fuentes": [
+        { "medio": "RPP", "url": "https://rpp.pe/lima/judiciales/alcalde-de-magdalena-niega-haber-remodelado-la-casa-de-la-fiscal-elizabeth-peralta-es-totalmente-falso-noticia-1601938" },
+        { "medio": "Canal N", "url": "https://canaln.pe/actualidad/francis-allison-niega-vinculo-fiscal-peralta-n478735" }
+      ]
+    }
+  ],
+  "podemos-peru": [
+    {
+      "fecha": "2023–2026",
+      "texto": "Fue condenado en 2023 a 12 años de prisión como coautor del asesinato del periodista Hugo Bustíos (1988), condena que la Corte Suprema confirmó. El 6 de febrero de 2026 el Tribunal Constitucional la anuló por prescripción y ordenó su libertad; el fallo no se pronuncia sobre su inocencia. Él mismo lo consigna en la información adicional de su hoja de vida.",
+      "fuentes": [
+        { "medio": "Reporteros sin Fronteras", "url": "https://rsf.org/es/lucha-contra-la-impunidad-en-per%C3%BA-asesino-condenado-del-periodista-hugo-bust%C3%ADos-queda-en-libertad" },
+        { "medio": "La República", "url": "https://larepublica.pe/politica/2026/02/20/hija-de-hugo-bustios-tras-libertad-de-urresti-tu-memoria-papa-estara-siempre-por-encima-de-la-ignominia-hnews-304560" }
+      ]
+    }
+  ],
+  "fuerza-popular": [
+    {
+      "fecha": "Octubre de 2025",
+      "texto": "Un reportaje de Panorama difundió audios y testimonios sobre una presunta red criminal que habría infiltrado las municipalidades de Comas, Ancón y Carabayllo, y mencionó a Daza, alcalde de Ancón, entre los alcaldes vinculados. Daza negó esos vínculos ante el mismo programa.",
+      "fuentes": [
+        { "medio": "Panamericana", "url": "https://panamericana.pe/panorama/locales/457025-alcaldes-alias-jorobado-trilogia-edil-infiltrada-capo-organizacion-criminal" },
+        { "medio": "Trome", "url": "https://trome.com/actualidad/policiales/el-jorbado-pago-a-alcaldes-de-comas-carabayllo-y-ancon-segun-panorama-ulises-villegas-pablo-mendoza-samuel-daza-adam-smith-video-historia-de-policiales-noticia/" }
+      ]
+    }
+  ],
+  "ahora-nacion": []
+}

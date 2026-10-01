@@ -9,20 +9,28 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = path.resolve(root, '..', 'candidatos_lima_2026.txt');
 const FOTO_URL = (guid) => `https://mpesije.jne.gob.pe/apidocs/${guid}.jpg`;
 
-// Orden e intención de voto tal como se entregó. Las dos columnas llegaron sin
-// rótulo: edita `mediciones` y `fuente` cuando tengas la ficha de la encuesta.
+// Encuesta de intención de voto (Ipsos, setiembre 2026). Tienen sección propia
+// las candidaturas hasta Susel Paredes; el resto se agrupa en `otros`.
 const ENCUESTA = {
-  fuente: '',
-  mediciones: ['Medición A', 'Medición B'],
+  fuente: 'Ipsos',
+  fecha: 'setiembre de 2026',
   filas: [
-    { org: 'RENOVACION POPULAR PERU', slug: 'renovacion-popular', partido: 'Renovación Popular', color: '#1789c4', v: [28.4, 29.6] },
-    { org: 'PARTIDO DEMOCRATICO SOMOS PERU', slug: 'somos-peru', partido: 'Somos Perú', color: '#d7263d', v: [18.2, 17.2] },
-    { org: 'AVANZA PAIS - PARTIDO DE INTEGRACION SOCIAL', slug: 'avanza-pais', partido: 'Avanza País', color: '#d4127a', v: [11.3, 13.0] },
-    { org: 'PODEMOS PERU', slug: 'podemos-peru', partido: 'Podemos Perú', color: '#3a2f9b', v: [5.8, 7.1] },
-    { org: 'FUERZA POPULAR', slug: 'fuerza-popular', partido: 'Fuerza Popular', color: '#e8701a', v: [7.1, 6.3] },
-    { org: 'ALIANZA PARA EL PROGRESO', slug: 'alianza-para-el-progreso', partido: 'Alianza para el Progreso', color: '#1560b8', v: [4.8, 4.4] },
-    { org: 'ACCION POPULAR', slug: 'accion-popular', partido: 'Acción Popular', color: '#9c1b22', v: [3.6, 4.0] },
+    { org: 'RENOVACION POPULAR PERU', slug: 'renovacion-popular', partido: 'Renovación Popular', color: '#1789c4', v: 25 },
+    { org: 'PARTIDO DEMOCRATICO SOMOS PERU', slug: 'somos-peru', partido: 'Somos Perú', color: '#d7263d', v: 14 },
+    { org: 'AVANZA PAIS - PARTIDO DE INTEGRACION SOCIAL', slug: 'avanza-pais', partido: 'Avanza País', color: '#d4127a', v: 13 },
+    { org: 'PODEMOS PERU', slug: 'podemos-peru', partido: 'Podemos Perú', color: '#3a2f9b', v: 8 },
+    { org: 'FUERZA POPULAR', slug: 'fuerza-popular', partido: 'Fuerza Popular', color: '#e8701a', v: 6 },
+    { org: 'AHORA NACION - AN', slug: 'ahora-nacion', partido: 'Ahora Nación', color: '#0f8a6a', v: 3 },
   ],
+  otros: [
+    { nombre: 'Ricardo Belmont', partido: 'Partido Cívico Obras', v: 3 },
+    { nombre: 'Elio Riera', partido: 'Alianza para el Progreso', v: 2 },
+    { nombre: 'Oswaldo Vargas', partido: 'Juntos por el Perú', v: 2 },
+    { nombre: 'Alberto Tejada', partido: 'Acción Popular', v: 2 },
+    { nombre: 'Otras candidaturas', partido: '', v: 8 },
+  ],
+  blancoViciado: 5,
+  noPrecisa: 9,
 };
 
 // ---------- lectura tolerante ----------
@@ -228,5 +236,5 @@ for (const [i, fila] of ENCUESTA.filas.entries()) {
 
 await fs.writeFile(
   path.join(root, 'src/data/candidatos.json'),
-  JSON.stringify({ encuesta: { fuente: ENCUESTA.fuente, mediciones: ENCUESTA.mediciones }, candidatos }, null, 2),
+  JSON.stringify({ encuesta: { fuente: ENCUESTA.fuente, fecha: ENCUESTA.fecha, otros: ENCUESTA.otros, blancoViciado: ENCUESTA.blancoViciado, noPrecisa: ENCUESTA.noPrecisa }, candidatos }, null, 2),
 );

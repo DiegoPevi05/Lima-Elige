@@ -1,10 +1,36 @@
 {
   "encuesta": {
-    "fuente": "",
-    "mediciones": [
-      "Medición A",
-      "Medición B"
-    ]
+    "fuente": "Ipsos",
+    "fecha": "setiembre de 2026",
+    "otros": [
+      {
+        "nombre": "Ricardo Belmont",
+        "partido": "Partido Cívico Obras",
+        "v": 3
+      },
+      {
+        "nombre": "Elio Riera",
+        "partido": "Alianza para el Progreso",
+        "v": 2
+      },
+      {
+        "nombre": "Oswaldo Vargas",
+        "partido": "Juntos por el Perú",
+        "v": 2
+      },
+      {
+        "nombre": "Alberto Tejada",
+        "partido": "Acción Popular",
+        "v": 2
+      },
+      {
+        "nombre": "Otras candidaturas",
+        "partido": "",
+        "v": 8
+      }
+    ],
+    "blancoViciado": 5,
+    "noPrecisa": 9
   },
   "candidatos": [
     {
@@ -13,10 +39,7 @@
       "partido": "Renovación Popular",
       "organizacion": "Renovacion Popular Peru",
       "color": "#1789c4",
-      "intencion": [
-        28.4,
-        29.6
-      ],
+      "intencion": 25,
       "nombre": "Rafael Bernardo López Aliaga Cazorla",
       "nombreCorto": "Rafael López Aliaga",
       "apellido": "López Aliaga",
@@ -190,10 +213,7 @@
       "partido": "Somos Perú",
       "organizacion": "Partido Democratico Somos Peru",
       "color": "#d7263d",
-      "intencion": [
-        18.2,
-        17.2
-      ],
+      "intencion": 14,
       "nombre": "Carlos Ricardo Bruce Montes de Oca",
       "nombreCorto": "Carlos Bruce",
       "apellido": "Bruce",
@@ -348,10 +368,7 @@
       "partido": "Avanza País",
       "organizacion": "Avanza Pais - Partido de Integracion Social",
       "color": "#d4127a",
-      "intencion": [
-        11.3,
-        13
-      ],
+      "intencion": 13,
       "nombre": "Francis James Allison Oyague",
       "nombreCorto": "Francis Allison",
       "apellido": "Allison",
@@ -568,10 +585,7 @@
       "partido": "Podemos Perú",
       "organizacion": "Podemos Peru",
       "color": "#3a2f9b",
-      "intencion": [
-        5.8,
-        7.1
-      ],
+      "intencion": 8,
       "nombre": "Daniel Belizario Urresti Elera",
       "nombreCorto": "Daniel Urresti",
       "apellido": "Urresti",
@@ -687,10 +701,7 @@
       "partido": "Fuerza Popular",
       "organizacion": "Fuerza Popular",
       "color": "#e8701a",
-      "intencion": [
-        7.1,
-        6.3
-      ],
+      "intencion": 6,
       "nombre": "Samuel Marcos Daza Taype",
       "nombreCorto": "Samuel Daza",
       "apellido": "Daza",
@@ -833,304 +844,169 @@
       "adicional": []
     },
     {
-      "slug": "alianza-para-el-progreso",
+      "slug": "ahora-nacion",
       "puesto": 6,
-      "partido": "Alianza para el Progreso",
-      "organizacion": "Alianza para el Progreso",
-      "color": "#1560b8",
-      "intencion": [
-        4.8,
-        4.4
-      ],
-      "nombre": "Elio Fernando Riera Garro",
-      "nombreCorto": "Elio Riera",
-      "apellido": "Riera",
+      "partido": "Ahora Nación",
+      "organizacion": "Ahora Nacion - An",
+      "color": "#0f8a6a",
+      "intencion": 3,
+      "nombre": "Susel Ana Maria Paredes Pique",
+      "nombreCorto": "Susel Paredes",
+      "apellido": "Paredes",
       "cargo": "Alcalde Provincial",
       "numeroLista": null,
       "estado": "Inscrito",
-      "edad": 43,
-      "nacimiento": "08/05/1983",
+      "edad": 63,
+      "nacimiento": "26/07/1963",
       "lugar": "Jesús María, Lima",
-      "foto": "img/alianza-para-el-progreso.jpg",
+      "foto": "img/ahora-nacion.jpg",
       "experiencia": [
         {
-          "anios": "2012–2026",
-          "cargo": "Gerente General",
-          "lugar": "Riera Law Office Sociedad Anonima",
+          "anios": "2021–2026",
+          "cargo": "Congresista de la Republica",
+          "lugar": "Congreso de la Republica",
           "nota": ""
         },
         {
-          "anios": "2016–2018",
-          "cargo": "Abogado",
-          "lugar": "Tekton Corp S.A.C",
-          "nota": ""
+          "anios": "2020",
+          "cargo": "Subgerente",
+          "lugar": "Municipalidad de Magdalena del Mar",
+          "nota": "De enero a noviembre del año 2020"
         },
         {
-          "anios": "2014–2018",
-          "cargo": "Docente",
-          "lugar": "Universidad Peruana de Ciencias Aplicadas S.A.C",
-          "nota": ""
+          "anios": "2019",
+          "cargo": "Gerente",
+          "lugar": "Municipalidad de la Victoria",
+          "nota": "De enero a diciembre del año 2019"
         },
         {
-          "anios": "2016",
-          "cargo": "Abogado",
-          "lugar": "Panapex S.A",
-          "nota": ""
+          "anios": "2016–2017",
+          "cargo": "Asesora",
+          "lugar": "Ministerio del Interior",
+          "nota": "De octubre 2016 a setiembre 2017"
         },
         {
           "anios": "2015–2016",
-          "cargo": "Docente",
-          "lugar": "Universidad Cesar Vallejo S.A.C",
-          "nota": "Fuidocente en las sedes de ate ysjl"
+          "cargo": "Gerente",
+          "lugar": "Municipalidad Distrital de los Olivos",
+          "nota": "De marzo 2015 a febrero 2016"
         }
       ],
       "formacion": [
         {
           "nivel": "Maestría",
-          "titulo": "Maestro en Derecho de la Empresa Sí",
-          "centro": "Universidad Peruana de Ciencias Aplicadas S.A.C.",
-          "anio": "2019",
+          "titulo": "Derecho Comparado",
+          "centro": "Universidad Cumplutense",
+          "anio": "1998",
           "nota": ""
         },
         {
-          "nivel": "Universitaria",
-          "titulo": "Abogado",
-          "centro": "Universidad Peruana de Ciencias Aplicadas S.A.C.",
-          "anio": "2011",
-          "nota": ""
-        },
-        {
-          "nivel": "Universitaria",
-          "titulo": "Bachiller en Derecho",
-          "centro": "Universidad Peruana de Ciencias Aplicadas S.A.C.",
-          "anio": "2010",
-          "nota": ""
-        }
-      ],
-      "cargosEleccion": [],
-      "cargosPartido": [],
-      "renuncias": [
-        {
-          "anio": "2022",
-          "org": "Fuerza Popular"
-        }
-      ],
-      "ingresos": {
-        "anio": "2025",
-        "publico": 0,
-        "privado": 78122,
-        "total": 78122
-      },
-      "inmuebles": [
-        {
-          "tipo": "Registro de Predios",
-          "valor": 80061.76,
-          "nota": ""
-        },
-        {
-          "tipo": "Registro de Predios",
-          "valor": 116452.05,
-          "nota": ""
-        }
-      ],
-      "muebles": [
-        {
-          "tipo": "Valoradquiridoendólares56990.00 - Partida Registral 55246192",
-          "valor": 213256.5,
-          "nota": ""
-        },
-        {
-          "tipo": "Partida Registral : 54236259",
-          "valor": 5100,
-          "nota": ""
-        }
-      ],
-      "empresas": [
-        {
-          "nombre": "Victorems.a.c",
-          "tipo": "Acciones",
-          "valor": 10
-        },
-        {
-          "nombre": "Tektonservicios Legalessac",
-          "tipo": "Acciones",
-          "valor": 1
-        },
-        {
-          "nombre": "Riera Lawoffice SAC",
-          "tipo": "Acciones",
-          "valor": 1
-        },
-        {
-          "nombre": "Global Traktor Sa.c",
-          "tipo": "Acciones",
-          "valor": 1
-        }
-      ],
-      "patrimonio": {
-        "inmuebles": 196513.81,
-        "muebles": 218356.5,
-        "empresas": 13
-      },
-      "sentenciasPenales": [],
-      "sentenciasObligaciones": [
-        {
-          "materia": "Violencia Familiar",
-          "fuero": "9no Juzgado de Familia Suebsp de Violencia Contra la Mujer",
-          "fallo": "Otorgar medidas de proteccionar- chivado mediante pronunciamiento fiscal de fecha 15 de noviembre 2023, que declaro consentido yarchivado el proceso (carpeta fiscal 5021-2023)",
-          "nota": "Exp. 24094-2019-0-3202-jr-ft-11 y exp.24086-2019-03202-jr-rt-9 con fallo de déjese sin efecto las medidas de proteccion, contenida en la resolucion número uno, de fecha 6/08/2019, por esta judicatura yarchivese definitivamente."
-        },
-        {
-          "materia": "Familia / Alimentaria",
-          "fuero": "4to Juzgado de Familia de Lima Este",
-          "fallo": "Revocar la resolucion N.° 8 del 19 de set. De dos mil dieciocho (19/09/2018 en el extremo apelado y reformandola - ordena que elio fernando riera garro acuda a su menor hijo con una pensión de s / 1,800",
-          "nota": ""
-        }
-      ],
-      "adicional": []
-    },
-    {
-      "slug": "accion-popular",
-      "puesto": 7,
-      "partido": "Acción Popular",
-      "organizacion": "Accion Popular",
-      "color": "#9c1b22",
-      "intencion": [
-        3.6,
-        4
-      ],
-      "nombre": "Carlos Alberto Tejada Noriega",
-      "nombreCorto": "Carlos Tejada",
-      "apellido": "Tejada",
-      "cargo": "Alcalde Provincial",
-      "numeroLista": null,
-      "estado": "Inscrito",
-      "edad": 69,
-      "nacimiento": "11/11/1956",
-      "lugar": "San Isidro, Lima",
-      "foto": "img/accion-popular.jpg",
-      "experiencia": [
-        {
-          "anios": "2015–2026",
-          "cargo": "Medico Cirujano Urólogo",
-          "lugar": "Niuvida SAC",
-          "nota": ""
-        },
-        {
-          "anios": "2005–2026",
-          "cargo": "Medico Cirujano Urólogo",
-          "lugar": "Clinica del Bienestar SAC",
-          "nota": ""
-        },
-        {
-          "anios": "1994–2026",
-          "cargo": "Médico Cirujano Urólogo",
-          "lugar": "Clinica Miraflores SAC",
-          "nota": ""
-        }
-      ],
-      "formacion": [
-        {
-          "nivel": "Posgrado",
-          "titulo": "Gestión Pública",
+          "nivel": "Otro posgrado",
+          "titulo": "Derecho Penal",
           "centro": "Universidad Nacional Mayor de San Marcos",
           "anio": "",
-          "nota": ""
+          "nota": "Tesis en proceso"
         },
         {
           "nivel": "Universitaria",
-          "titulo": "Medico Cirujano (Duplicado Segun Rr-02924-R-12)",
+          "titulo": "Abogada",
           "centro": "Universidad Nacional Mayor de San Marcos",
-          "anio": "2012",
-          "nota": ""
-        },
-        {
-          "nivel": "Universitaria",
-          "titulo": "Medico Cirujano Especialista en Urologia",
-          "centro": "Universidad Nacional Mayor de San Marcos",
-          "anio": "2000",
-          "nota": ""
-        },
-        {
-          "nivel": "Universitaria",
-          "titulo": "Bachiller en Medicina",
-          "centro": "Universidad Nacional Federico Villarreal",
-          "anio": "1982",
-          "nota": ""
-        },
-        {
-          "nivel": "Universitaria",
-          "titulo": "Medico Cirujano",
-          "centro": "Universidad Nacional Federico Villarreal",
-          "anio": "1982",
+          "anio": "1990",
           "nota": ""
         }
       ],
       "cargosEleccion": [
         {
-          "anios": "2019–2022",
-          "cargo": "Alcalde Distrital",
-          "org": "Accion Popular",
-          "nota": ""
-        },
-        {
-          "anios": "2007–2010",
-          "cargo": "Alcalde Distrital",
-          "org": "Democracia con Valores",
-          "nota": ""
+          "anios": "2021–2025",
+          "cargo": "Congresista de la República",
+          "org": "Partido Morado",
+          "nota": "Elegida para el periodo parlamentario 2021-2026"
         }
       ],
-      "cargosPartido": [],
-      "renuncias": [
+      "cargosPartido": [
         {
-          "anio": "2024",
-          "org": "Peru Moderno"
+          "anios": "2004–2007",
+          "cargo": "Comision de la Mujer y Equidad de Género",
+          "org": "Partido Socialista"
         },
         {
-          "anio": "2011",
-          "org": "Valores Peru"
+          "anios": "2017–2019",
+          "cargo": "Apoderada/Fundadora y Representante Legal",
+          "org": "Organización Política Local Distrital Vivo por Magdalena"
+        }
+      ],
+      "renuncias": [
+        {
+          "anio": "2025",
+          "org": "Primero la Gente - Comunidad, Ecologia, Libertad y Progreso"
+        },
+        {
+          "anio": "2022",
+          "org": "Partido Morado"
         }
       ],
       "ingresos": {
         "anio": "2025",
-        "publico": 0,
-        "privado": 209839,
-        "total": 209839
+        "publico": 351867,
+        "privado": 20950,
+        "total": 372817
       },
       "inmuebles": [
         {
-          "tipo": "Inmueble",
-          "valor": 504025.38,
-          "nota": ""
+          "tipo": "Estacionamiento / Cochera",
+          "valor": 1500,
+          "nota": "Propietaria del 50% del inmueble"
+        },
+        {
+          "tipo": "Registro de Predios",
+          "valor": 99571.31,
+          "nota": "Propietaria del 50 %"
+        },
+        {
+          "tipo": "Departamento",
+          "valor": 103850,
+          "nota": "Valor del inmueble 31000 dolares americanos. Se uso tc 3.35"
         }
       ],
       "muebles": [
         {
-          "tipo": "Vehículo",
-          "valor": 30546.2,
-          "nota": ""
+          "tipo": "Auto Siniestrado",
+          "valor": 0,
+          "nota": "Automovil kia declarado siniestrado"
         },
         {
-          "tipo": "En Condición de Baja",
-          "valor": 0,
-          "nota": ""
-        },
-        {
-          "tipo": "En Condición de Baja",
-          "valor": 0,
+          "tipo": "Vehiculo Mecanico",
+          "valor": 67208.72,
           "nota": ""
         }
       ],
-      "empresas": [],
+      "empresas": [
+        {
+          "nombre": "Red de Comunicaciones e Informacion para Grupos de Ayuda Mutua del Peru",
+          "tipo": "Participaciones",
+          "valor": 0
+        },
+        {
+          "nombre": "Asociacion Justicia Ex Gratia",
+          "tipo": "Participaciones",
+          "valor": 0
+        },
+        {
+          "nombre": "Paredes Pique Abogados SAC",
+          "tipo": "Acciones",
+          "valor": 1
+        }
+      ],
       "patrimonio": {
-        "inmuebles": 504025.38,
-        "muebles": 30546.2,
-        "empresas": 0
+        "inmuebles": 204921.31,
+        "muebles": 67208.72,
+        "empresas": 1
       },
       "sentenciasPenales": [],
       "sentenciasObligaciones": [],
       "adicional": [
-        "Empresas con bajas de oficio: Salud activa sac (31/10/2024) y lifestruck sa (31/01/2025)"
+        "Información cargada de la declaración de impuesto a la renta periodo 2025.",
+        "Cargo como SUBGERENTE DE PARTICIPACIÓN VECINAL 2011-2013 Y GERENTE DE FISCALIZACIÓN EN EL AÑO 2014."
       ]
     }
   ]

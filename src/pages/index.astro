@@ -1,17 +1,18 @@
 ---
 import data from '../data/candidatos.json';
+import antecedentes from '../data/antecedentes.json';
 import '../styles/global.css';
 
 const { candidatos, encuesta } = data;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const soles = (n) => 'S/ ' + new Intl.NumberFormat('es-PE', { maximumFractionDigits: 0 }).format(n);
 const pct = (n) => n.toFixed(1).replace('.', ',');
-const maxV = Math.max(...candidatos.flatMap((c) => c.intencion));
-const delta = (c) => {
-  const d = +(c.intencion[1] - c.intencion[0]).toFixed(1);
-  return (d > 0 ? '+' : d < 0 ? '−' : '') + pct(Math.abs(d));
-};
-const [mA, mB] = encuesta.mediciones;
+const maxV = Math.max(...candidatos.map((c) => c.intencion));
+const totalOtros = encuesta.otros.reduce((t, o) => t + o.v, 0);
+const detalleOtros = encuesta.otros.map((o) => `${o.nombre} ${o.v}%`).join(', ');
+const ficha = `${encuesta.fuente}, ${encuesta.fecha}`;
+const N = ['cero', 'una', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'][candidatos.length];
+const mayus = (t) => t[0].toUpperCase() + t.slice(1);
 const sentencias = (c) => c.sentenciasPenales.length + c.sentenciasObligaciones.length;
 const words = (s) => s.split(' ');
 ---
@@ -21,8 +22,8 @@ const words = (s) => s.split(' ');
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lima 2026: siete hojas de vida</title>
-    <meta name="description" content="Las siete candidaturas con mayor intención de voto en Lima Metropolitana, contadas con lo que cada una declaró en su hoja de vida ante el JNE." />
+    <title>{`Lima 2026: ${N} hojas de vida`}</title>
+    <meta name="description" content={`Las ${N} candidaturas con mayor intención de voto en Lima Metropolitana, contadas con lo que cada una declaró en su hoja de vida ante el JNE.`} />
     <meta name="theme-color" content="#dadfe0" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%2317212b%27/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,10 +46,10 @@ const words = (s) => s.split(' ');
       <header class="portada" data-shape="map">
         <h1>
           <span>Lima elige.</span>
-          <span>Siete hojas de vida, lado a lado.</span>
+          <span>{mayus(N)} hojas de vida, lado a lado.</span>
         </h1>
         <p class="bajada">
-          Las siete candidaturas con mayor intención de voto en Lima Metropolitana, contadas con lo que cada una declaró ante el Jurado Nacional de
+          Las {N} candidaturas con mayor intención de voto en Lima Metropolitana, contadas con lo que cada una declaró ante el Jurado Nacional de
           Elecciones: estudios, trabajos, ingresos, bienes y sentencias.
         </p>
 
@@ -61,16 +62,28 @@ const words = (s) => s.split(' ');
                   <small>{c.partido}</small>
                 </span>
                 <span class="sondeo-barra" aria-hidden="true">
-                  <i style={`--w:${(c.intencion[1] / maxV) * 100}%`} />
+                  <i style={`--w:${(c.intencion / maxV) * 100}%`} />
                 </span>
-                <span class="sondeo-num">{pct(c.intencion[1])}%</span>
+                <span class="sondeo-num">{c.intencion}%</span>
               </a>
             </li>
           ))}
+          <li class="sondeo-otros">
+            <div>
+              <span class="sondeo-nombre">
+                Otros
+                <small>{detalleOtros}</small>
+              </span>
+              <span class="sondeo-barra" aria-hidden="true">
+                <i style={`--w:${(totalOtros / maxV) * 100}%`} />
+              </span>
+              <span class="sondeo-num">{totalOtros}%</span>
+            </div>
+          </li>
         </ol>
         <p class="nota">
-          Barras: {mB.toLowerCase()} de intención de voto. {encuesta.fuente ? `Fuente: ${encuesta.fuente}.` : 'Fuente de la encuesta no indicada.'} Mueve el
-          cursor: el campo de vectores gira a su alrededor.
+          Intención de voto: {ficha}. Blanco o viciado {encuesta.blancoViciado}%, no precisa {encuesta.noPrecisa}%. Mueve el cursor: el campo de vectores
+          gira a su alrededor.
         </p>
       </header>
 
@@ -79,7 +92,7 @@ const words = (s) => s.split(' ');
         <div
           class="anillo"
           data-anillo={JSON.stringify(
-            candidatos.map((c) => ({ slug: c.slug, nombre: c.nombreCorto, partido: c.partido, color: c.color, foto: base + c.foto, intencion: pct(c.intencion[1]) })),
+            candidatos.map((c) => ({ slug: c.slug, nombre: c.nombreCorto, partido: c.partido, color: c.color, foto: base + c.foto, intencion: c.intencion })),
           )}
         >
           <canvas aria-hidden="true"></canvas>
@@ -109,18 +122,10 @@ const words = (s) => s.split(' ');
             <p class="partido">
               <b>{c.partido}</b> · postula a {c.cargo.toLowerCase()}{c.numeroLista ? ` n.º ${c.numeroLista}` : ''}
             </p>
-            <dl class="cifras">
+<dl class="cifras">
               <div>
-                <dt>{mA}</dt>
-                <dd><span data-cuenta={c.intencion[0]}>{pct(c.intencion[0])}</span>%</dd>
-              </div>
-              <div>
-                <dt>{mB}</dt>
-                <dd><span data-cuenta={c.intencion[1]}>{pct(c.intencion[1])}</span>%</dd>
-              </div>
-              <div class="delta">
-                <dt>Diferencia</dt>
-                <dd>{delta(c)} <small>pts</small></dd>
+                <dt>Intención de voto · {ficha}</dt>
+                <dd><span data-cuenta={c.intencion}>{c.intencion}</span>%</dd>
               </div>
             </dl>
             <img class="foto" src={base + c.foto} alt={`Foto de la hoja de vida de ${c.nombre}`} width="96" height="135" loading="lazy" />
@@ -170,7 +175,7 @@ const words = (s) => s.split(' ');
                     <span class="cuando">{e.anios}</span>
                     <span>
                       <b>{e.cargo}</b>
-                      <em>Elegido por {e.org}</em>
+                      <em>Por {e.org}</em>
                       {e.nota && <small>{e.nota}</small>}
                     </span>
                   </li>
@@ -270,18 +275,41 @@ const words = (s) => s.split(' ');
               </details>
             )}
           </section>
+
+          {(antecedentes[c.slug] ?? []).length > 0 && (
+            <section class="bloque">
+              <h3>En las noticias</h3>
+              <ul class="noticias">
+                {antecedentes[c.slug].map((n) => (
+                  <li>
+                    <div>
+                      <span class="cuando">{n.fecha}</span>
+                      <p>{n.texto}</p>
+                    </div>
+                    <ul class="fuentes" aria-label="Fuentes">
+                      {n.fuentes.map((f) => (
+                        <li>
+                          <a href={f.url} target="_blank" rel="noopener nofollow">{f.medio}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+              <p class="aviso">Son reportes periodísticos, no parte de la hoja de vida. Una investigación o un señalamiento no equivale a una condena.</p>
+            </section>
+          )}
         </article>
       ))}
 
       <section class="comparar" id="comparar" data-shape="flow">
-        <h2>Las siete, de un vistazo</h2>
+        <h2>Las {N}, de un vistazo</h2>
         <div class="tabla-wrap" tabindex="0" role="region" aria-label="Comparación de candidaturas">
           <table>
             <thead>
               <tr>
                 <th scope="col">Candidatura</th>
-                <th scope="col">{mA}</th>
-                <th scope="col">{mB}</th>
+                <th scope="col">Intención de voto</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Ingresos {candidatos[0].ingresos.anio}</th>
                 <th scope="col">Cargos electos previos</th>
@@ -295,22 +323,30 @@ const words = (s) => s.split(' ');
                     <a href={`#${c.slug}`}>{c.nombreCorto}</a>
                     <small>{c.partido}</small>
                   </th>
-                  <td class="barra"><i style={`--w:${(c.intencion[0] / maxV) * 100}%`} /><span>{pct(c.intencion[0])}%</span></td>
-                  <td class="barra"><i style={`--w:${(c.intencion[1] / maxV) * 100}%`} /><span>{pct(c.intencion[1])}%</span></td>
+                  <td class="barra"><i style={`--w:${(c.intencion / maxV) * 100}%`} /><span>{c.intencion}%</span></td>
                   <td>{c.edad}</td>
                   <td>{soles(c.ingresos.total)}</td>
                   <td>{c.cargosEleccion.length}</td>
                   <td>{sentencias(c)}</td>
                 </tr>
               ))}
+              <tr class="fila-otros">
+                <th scope="row">
+                  Otros
+                  <small>{detalleOtros}</small>
+                </th>
+                <td class="barra"><i style={`--w:${(totalOtros / maxV) * 100}%`} /><span>{totalOtros}%</span></td>
+                <td colspan="4">Blanco o viciado {encuesta.blancoViciado}% · No precisa {encuesta.noPrecisa}%</td>
+              </tr>
             </tbody>
           </table>
         </div>
 <footer>
           <p>
-            Toda la información es referenciada o extraída de fuentes oficiales: la hoja de vida que cada candidatura registró ante el Jurado Nacional de
-            Elecciones para las Elecciones Regionales y Municipales 2026, incluidas las fotos. Los textos en mayúsculas se pasaron a minúsculas y se
-            omitieron nombres de menores de edad; nada más se editó.
+Toda la información es referenciada o extraída de fuentes oficiales: la hoja de vida que cada candidatura registró ante el Jurado Nacional de
+            Elecciones para las Elecciones Regionales y Municipales 2026, incluidas las fotos. La intención de voto es de {ficha}. La sección “En las
+            noticias” resume reportes periodísticos y enlaza cada fuente. Los textos en mayúsculas se pasaron a minúsculas y se omitieron nombres de
+            menores de edad.
           </p>
           <p>Una sentencia declarada no equivale a una condena vigente: lee el detalle y el estado de cada una.</p>
           <p class="creditos">
@@ -394,7 +430,7 @@ const words = (s) => s.split(' ');
       });
 
       // Al entrar cada bloque: letras del nombre y conteo de porcentajes.
-      const fmt = (n) => n.toFixed(1).replace('.', ',');
+      const fmt = (n) => String(Math.round(n));
       const contar = (el) => {
         const fin = parseFloat(el.dataset.cuenta);
         if (reduce) return;

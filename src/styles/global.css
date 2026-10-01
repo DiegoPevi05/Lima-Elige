@@ -114,7 +114,8 @@ main {
   border-top: 1px solid var(--linea);
 }
 
-.sondeo a {
+.sondeo a,
+.sondeo-otros div {
   display: grid;
   grid-template-columns: minmax(9rem, 13rem) 1fr 4.5rem;
   align-items: center;
@@ -551,6 +552,63 @@ details li {
   border-bottom: 1px solid var(--linea);
 }
 
+.sondeo-otros i,
+.fila-otros i {
+  background: var(--tinta-2);
+}
+
+.sondeo-otros .sondeo-num,
+.sondeo-otros .sondeo-nombre {
+  color: var(--tinta-2);
+}
+
+/* ---------- noticias ---------- */
+.noticias > li {
+  display: grid;
+  grid-template-columns: 1fr 8.5rem;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--linea);
+}
+
+.noticias > li:last-child {
+  border-bottom: 1px solid var(--linea);
+}
+
+.noticias p {
+  margin-top: 0.3rem;
+}
+
+.fuentes {
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--acc);
+  font-size: 0.9rem;
+}
+
+.fuentes li + li {
+  margin-top: 0.4rem;
+}
+
+.fuentes a {
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+}
+
+.aviso {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
+.fila-otros th,
+.fila-otros td {
+  color: var(--tinta-2);
+}
+
+tbody .fila-otros th {
+  border-left-color: var(--tinta-2);
+}
+
 /* ---------- comparación ---------- */
 .comparar {
   min-height: 100vh;
@@ -574,7 +632,7 @@ details li {
 
 table {
   width: 100%;
-  min-width: 52rem;
+  min-width: 46rem;
   border-collapse: collapse;
   font-variant-numeric: tabular-nums;
 }
@@ -719,8 +777,14 @@ tbody th small {
     -webkit-backdrop-filter: blur(9px);
   }
 
-  .sondeo a {
+  .sondeo a,
+  .sondeo-otros div {
     grid-template-columns: 1fr 3.8rem;
+  }
+
+  .noticias > li {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
   }
 
   .sondeo-barra {
@@ -786,4 +850,12 @@ tbody th small {
   .js .comparar:not(.visto) .barra i {
     transform: none;
   }
+}
+
+tbody td {
+  white-space: nowrap;
+}
+
+.fila-otros td {
+  white-space: normal;
 }
