@@ -4,6 +4,7 @@
 // - Entre secciones, un campo de rotacional (curl noise) las arrastra.
 // Detrás, un shader dibuja el mismo campo como una rejilla de trazos.
 import * as THREE from 'three';
+import peru from '../data/peru.json';
 
 // Relieve del retrato: rango de z en el que se codifica la sombra de cada punto.
 const DEPTH = 0.22;
@@ -46,10 +47,19 @@ ${NOISE}
 attribute vec3 aA;
 attribute vec3 aB;
 attribute vec4 aRnd;
+attribute float aTintA;
+attribute float aTintB;
 uniform float uTime,uMix,uLooseA,uLooseB,uSize,uDot,uVel,uTwist;
 uniform vec2 uScaleA,uScaleB,uOffA,uOffB,uMouse,uTilt,uField;
-varying float vAccent;
+uniform vec3 uInk,uAccent;
+varying vec3 vColor;
 varying float vAlpha;
+
+// 0: tinta/acento del partido · 1: rojo de la bandera · 2: blanco
+vec3 tintColor(float t,float accent){
+  vec3 base=mix(uInk,uAccent,clamp(accent,0.,1.));
+  return t<.5?base:(t<1.5?vec3(.694,.005,.017):vec3(1.));
+}
 
 vec3 place(vec3 p,vec2 scale,vec2 off,float loose){
   vec3 q=vec3(p.xy*scale,p.z);
@@ -98,21 +108,22 @@ void main(){
   float tightSize=uDot*(.25+1.9*pow(dark,.85))*step(.03,dark);
   float looseSize=uSize*(.55+.9*aRnd.y)/-mv.z;
   gl_PointSize=mix(tightSize,looseSize,max(loose,storm))*(1.+storm*.4);
-  vAccent=step(.8,aRnd.w)+infl*.6;
-  vAlpha=mix(.92,.34,max(loose,storm*.7));
+  float accent=step(.8,aRnd.w)+infl*.6;
+  vColor=mix(tintColor(aTintA,accent),tintColor(aTintB,accent),m);
+  float flag=mix(step(.5,aTintA),step(.5,aTintB),m);
+  vAlpha=mix(mix(.92,1.,flag),.34,max(loose,storm*.7));
 }
 `;
 
 const POINTS_FRAG = /* glsl */ `
 precision highp float;
-uniform vec3 uInk,uAccent;
-varying float vAccent;
+varying vec3 vColor;
 varying float vAlpha;
 void main(){
   float d=length(gl_PointCoord-.5);
   float a=smoothstep(.5,.18,d)*vAlpha;
   if(a<.01)discard;
-  gl_FragColor=vec4(mix(uInk,uAccent,clamp(vAccent,0.,1.)),a);
+  gl_FragColor=vec4(vColor,a);
   #include <colorspace_fragment>
 }
 `;
@@ -193,7 +204,59 @@ async function samplePortrait(src, n) {
     out[k * 3 + 1] = 0.5 - (gy + 0.5) / rows;
     out[k * 3 + 2] = (0.5 - dark) * DEPTH;
   }
-  return { points: out, rows };
+  return { points: out, rows, tint: new Float32Array(n) };
+}
+
+// Mapa del Perú: partículas repartidas dentro del contorno y teñidas en tres
+// franjas verticales (rojo, blanco, rojo); una parte dibuja el borde en tinta.
+function mapTargets(n) {
+  const H = 520;
+  const W = Math.ceil(H * peru.aspect);
+  const cv = document.createElement('canvas');
+  cv.width = W;
+  cv.height = H;
+  const ctx = cv.getContext('2d', { willReadFrequently: true });
+  for (const ring of peru.rings) {
+    ctx.beginPath();
+    ring.forEach(([x, y], i) => ctx[i ? 'lineTo' : 'moveTo']((x / peru.aspect + 0.5) * W, (0.5 - y) * H));
+    ctx.closePath();
+    ctx.fill();
+  }
+  const mask = ctx.getImageData(0, 0, W, H).data;
+  const points = new Float32Array(n * 3);
+  const tint = new Float32Array(n);
+  const z = (0.5 - 0.44) * DEPTH;
+
+  // Borde: puntos repartidos a lo largo del contorno.
+  const ring = peru.rings[0];
+  const seg = ring.map((p, i) => Math.hypot(ring[(i + 1) % ring.length][0] - p[0], ring[(i + 1) % ring.length][1] - p[1]));
+  const total = seg.reduce((a, b) => a + b, 0);
+  const nEdge = Math.floor(n * 0.07);
+  let k = 0;
+  for (let i = 0; i < ring.length; i++) {
+    const a = ring[i];
+    const b = ring[(i + 1) % ring.length];
+    const count = Math.round((seg[i] / total) * nEdge);
+    for (let j = 0; j < count && k < nEdge; j++, k++) {
+      const t = Math.random();
+      points[k * 3] = a[0] + (b[0] - a[0]) * t + (Math.random() - 0.5) * 0.004;
+      points[k * 3 + 1] = a[1] + (b[1] - a[1]) * t + (Math.random() - 0.5) * 0.004;
+      points[k * 3 + 2] = (0.5 - 0.3) * DEPTH;
+    }
+  }
+  // Relleno.
+  while (k < n) {
+    const u = Math.random();
+    const v = Math.random();
+    if (mask[(((v * H) | 0) * W + ((u * W) | 0)) * 4 + 3] < 128) continue;
+    points[k * 3] = (u - 0.5) * peru.aspect;
+    points[k * 3 + 1] = 0.5 - v;
+    tint[k] = u < 1 / 3 || u > 2 / 3 ? 1 : 2;
+    // El rojo lleva puntos más gruesos para que la franja quede saturada.
+    points[k * 3 + 2] = tint[k] === 1 ? (0.5 - 0.8) * DEPTH : z;
+    k++;
+  }
+  return { points, tint };
 }
 
 function flowTargets(n) {
@@ -253,7 +316,8 @@ export function initScene(canvas, sections) {
 
   // Partículas.
   const flow = flowTargets(N);
-  const targets = sections.map(() => flow);
+  const noTint = new Float32Array(N);
+  const targets = sections.map((s) => (s.type === 'map' ? mapTargets(N) : { points: flow, tint: noTint, loose: true }));
   const geo = new THREE.BufferGeometry();
   const rnd = new Float32Array(N * 4);
   for (let i = 0; i < rnd.length; i++) rnd[i] = Math.random();
@@ -261,6 +325,8 @@ export function initScene(canvas, sections) {
   geo.setAttribute('aA', new THREE.BufferAttribute(new Float32Array(flow), 3));
   geo.setAttribute('aB', new THREE.BufferAttribute(new Float32Array(flow), 3));
   geo.setAttribute('aRnd', new THREE.BufferAttribute(rnd, 4));
+  geo.setAttribute('aTintA', new THREE.BufferAttribute(new Float32Array(N), 1));
+  geo.setAttribute('aTintB', new THREE.BufferAttribute(new Float32Array(N), 1));
   const U = {
     uTime: { value: 0 },
     uMix: { value: 0 },
@@ -297,8 +363,12 @@ export function initScene(canvas, sections) {
   function setPair(i) {
     current = i;
     const j = Math.min(i + 1, sections.length - 1);
-    geo.attributes.aA.array.set(targets[i]);
-    geo.attributes.aB.array.set(targets[j]);
+    geo.attributes.aA.array.set(targets[i].points);
+    geo.attributes.aB.array.set(targets[j].points);
+    geo.attributes.aTintA.array.set(targets[i].tint);
+    geo.attributes.aTintB.array.set(targets[j].tint);
+    geo.attributes.aTintA.needsUpdate = true;
+    geo.attributes.aTintB.needsUpdate = true;
     geo.attributes.aA.needsUpdate = true;
     geo.attributes.aB.needsUpdate = true;
     layout(i, U.uLooseA, U.uScaleA.value, U.uOffA.value);
@@ -306,7 +376,7 @@ export function initScene(canvas, sections) {
   }
 
   function layout(i, loose, scale, off) {
-    if (sections[i].type === 'portrait' && targets[i] !== flow) {
+    if (!targets[i].loose) {
       loose.value = 0;
       const s = small() ? visH * 0.5 : Math.min(visH * 0.74, visW * 0.5);
       scale.set(s, s);
@@ -324,7 +394,7 @@ export function initScene(canvas, sections) {
     if (s.type !== 'portrait') return;
     samplePortrait(s.src, N).then(
       (t) => {
-        targets[i] = t.points;
+        targets[i] = t;
         rows = t.rows;
         if (current === i || current === i - 1) setPair(current);
       },

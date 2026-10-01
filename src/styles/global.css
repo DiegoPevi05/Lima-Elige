@@ -78,6 +78,7 @@ main {
 }
 
 .portada h1 {
+  max-width: 46rem;
   font-family: var(--display);
   font-weight: 900;
   line-height: 0.88;
@@ -109,13 +110,13 @@ main {
 
 .sondeo {
   margin-top: clamp(2.5rem, 7vh, 5rem);
-  max-width: 46rem;
+  max-width: 39rem;
   border-top: 1px solid var(--linea);
 }
 
 .sondeo a {
   display: grid;
-  grid-template-columns: minmax(9rem, 15rem) 1fr 4.5rem;
+  grid-template-columns: minmax(9rem, 13rem) 1fr 4.5rem;
   align-items: center;
   gap: 1rem;
   padding: 0.7rem 0;
@@ -174,84 +175,85 @@ main {
   max-width: 38rem;
 }
 
-/* ---------- carrusel (isla de React) ---------- */
-.carrusel {
-  margin-top: clamp(4rem, 12vh, 8rem);
-  width: min(100vw - 2 * var(--margen), 78rem);
+/* ---------- anillo 3D ---------- */
+.selector {
+  min-height: 120vh;
+  padding: 0 var(--margen) 40vh;
 }
 
-.carrusel-pista {
-  height: 37rem;
+.selector[hidden] {
+  display: none;
 }
 
-/* Tailwind va sin preflight: se reponen aquí los mínimos que el componente espera. */
-.carrusel button {
-  padding: 0;
-  border: 0;
-  color: inherit;
-  font: inherit;
-}
-
-.carrusel button[aria-label^='Mostrar'],
-.carrusel-controles > button {
-  background-color: transparent;
-}
-
-.carrusel button[aria-label^='Mostrar'] {
-  aspect-ratio: 3 / 4;
-}
-
-.carrusel-nombre {
+.selector h2 {
   font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.6rem;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 0.9;
   text-transform: uppercase;
 }
 
-.carrusel-foto {
+.anillo canvas {
   display: block;
   width: 100%;
-  height: 100%;
-  border-radius: 0;
-  object-position: top;
-  box-shadow: none;
-  filter: grayscale(1) contrast(1.05);
-  outline: 1px solid var(--linea);
+  height: min(34rem, 62vh);
+  margin-top: 1.5rem;
+  cursor: grab;
+  touch-action: pan-y;
 }
 
-.carrusel [aria-current='true'] .carrusel-foto {
-  filter: none;
-  outline: 3px solid var(--acc);
+.anillo canvas:active {
+  cursor: grabbing;
 }
 
-.carrusel-controles {
-  border-radius: 0;
-  border-color: var(--linea);
-  background: var(--papel);
-  color: var(--tinta);
-}
-
-.carrusel-pie {
-  width: fit-content;
-  margin-inline: auto;
-  padding: 0.5rem 0.9rem;
-  background: var(--papel);
+.anillo-pie {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 0.4rem 1.5rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.anillo-pie p {
+  min-width: min(20rem, 60vw);
+  padding: 0.6rem 1rem;
   text-align: center;
+  background: var(--papel);
+  border-top: 3px solid var(--acc);
 }
 
-.carrusel-pie span {
-  color: var(--acc);
-  font-weight: 600;
+.anillo-pie b {
+  display: block;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-.carrusel-pie a {
+.anillo-pie span {
+  display: block;
+  color: var(--tinta-2);
+}
+
+.anillo-pie a {
   font-weight: 600;
   text-underline-offset: 0.2em;
+}
+
+.anillo-pie button {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--tinta);
+  background: var(--papel);
+  color: var(--tinta);
+  font: 500 1.8rem/1 var(--texto);
+  cursor: pointer;
+}
+
+.anillo-pie button:hover {
+  background: var(--tinta);
+  color: var(--neblina);
 }
 
 /* ---------- candidaturas ---------- */
@@ -632,6 +634,20 @@ tbody th small {
   margin-top: 0.7rem;
 }
 
+.creditos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem 2rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--linea);
+  color: var(--tinta);
+}
+
+.creditos a {
+  font-weight: 600;
+}
+
 /* ---------- riel ---------- */
 .riel {
   position: fixed;
@@ -686,6 +702,21 @@ tbody th small {
 @media (max-width: 859px) {
   :root {
     --col: 100%;
+  }
+
+  .portada {
+    padding-top: 62vh;
+  }
+
+  .portada h1,
+  .bajada,
+  .sondeo,
+  .nota {
+    padding: 0.8rem 0.9rem;
+    margin-top: 0;
+    background: var(--papel);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
   }
 
   .sondeo a {

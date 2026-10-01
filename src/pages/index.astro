@@ -1,8 +1,6 @@
 ---
 import data from '../data/candidatos.json';
-import '../styles/tailwind.css';
 import '../styles/global.css';
-import CandidateCarousel from '../components/CandidateCarousel.tsx';
 
 const { candidatos, encuesta } = data;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
@@ -44,7 +42,7 @@ const words = (s) => s.split(' ');
     </nav>
 
     <main>
-      <header class="portada" data-shape="flow">
+      <header class="portada" data-shape="map">
         <h1>
           <span>Lima elige.</span>
           <span>Siete hojas de vida, lado a lado.</span>
@@ -74,19 +72,28 @@ const words = (s) => s.split(' ');
           Barras: {mB.toLowerCase()} de intención de voto. {encuesta.fuente ? `Fuente: ${encuesta.fuente}.` : 'Fuente de la encuesta no indicada.'} Mueve el
           cursor: el campo de vectores gira a su alrededor.
         </p>
-
-        <CandidateCarousel
-          client:visible
-          items={candidatos.map((c) => ({
-            slug: c.slug,
-            nombre: c.nombreCorto,
-            partido: c.partido,
-            color: c.color,
-            foto: base + c.foto,
-            intencion: pct(c.intencion[1]),
-          }))}
-        />
       </header>
+
+      <section class="selector" data-shape="flow">
+        <h2>Gira y elige a quién leer</h2>
+        <div
+          class="anillo"
+          data-anillo={JSON.stringify(
+            candidatos.map((c) => ({ slug: c.slug, nombre: c.nombreCorto, partido: c.partido, color: c.color, foto: base + c.foto, intencion: pct(c.intencion[1]) })),
+          )}
+        >
+          <canvas aria-hidden="true"></canvas>
+          <div class="anillo-pie">
+            <button type="button" data-anillo-prev aria-label="Candidatura anterior">‹</button>
+            <p aria-live="polite">
+              <b data-anillo-nombre></b>
+              <span data-anillo-dato></span>
+              <a data-anillo-ir href="#">Leer su hoja de vida</a>
+            </p>
+            <button type="button" data-anillo-next aria-label="Candidatura siguiente">›</button>
+          </div>
+        </div>
+      </section>
 
       {candidatos.map((c) => (
         <article class="cand" id={c.slug} data-shape="portrait" data-src={base + c.foto} data-accent={c.color} style={`--acc:${c.color}`}>
@@ -299,13 +306,17 @@ const words = (s) => s.split(' ');
             </tbody>
           </table>
         </div>
-        <footer>
+<footer>
           <p>
-            Todo lo que se lee aquí viene de la hoja de vida que cada candidatura registró ante el JNE para las Elecciones Regionales y Municipales 2026.
-            Los textos en mayúsculas se pasaron a minúsculas y se omitieron nombres de menores de edad; nada más se editó. Las fotos son las del mismo
-            registro.
+            Toda la información es referenciada o extraída de fuentes oficiales: la hoja de vida que cada candidatura registró ante el Jurado Nacional de
+            Elecciones para las Elecciones Regionales y Municipales 2026, incluidas las fotos. Los textos en mayúsculas se pasaron a minúsculas y se
+            omitieron nombres de menores de edad; nada más se editó.
           </p>
           <p>Una sentencia declarada no equivale a una condena vigente: lee el detalle y el estado de cada una.</p>
+          <p class="creditos">
+            <span data-visitas hidden><b data-visitas-num></b> visitas</span>
+            <span>Diseñado por <a href="https://digitalprocessit.com" target="_blank" rel="noopener">digitalprocessit.com</a></span>
+          </p>
         </footer>
       </section>
     </main>
@@ -313,10 +324,11 @@ const words = (s) => s.split(' ');
     <script>
       import Lenis from 'lenis';
       import { initScene } from '../scripts/scene.js';
+      import { initRing } from '../scripts/ring.js';
 
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
       const els = [...document.querySelectorAll('[data-shape]')];
-      const sections = els.map((el) => ({ el, type: el.dataset.shape === 'portrait' ? 'portrait' : 'flow', src: el.dataset.src, accent: el.dataset.accent }));
+      const sections = els.map((el) => ({ el, type: el.dataset.shape, src: el.dataset.src, accent: el.dataset.accent }));
 
       const scene = initScene(document.getElementById('escena'), sections);
       if (!scene) document.documentElement.classList.add('sin-webgl');
@@ -330,7 +342,6 @@ const words = (s) => s.split(' ');
         };
         requestAnimationFrame(raf);
       }
-      // Delegado, para que también cubra los enlaces que crea la isla de React.
       document.addEventListener('click', (e) => {
         const a = e.target.closest?.('a[href^="#"]');
         const target = a && document.querySelector(a.getAttribute('href'));
@@ -340,6 +351,37 @@ const words = (s) => s.split(' ');
         else target.scrollIntoView();
         history.replaceState(null, '', a.getAttribute('href'));
       });
+
+      // Anillo 3D de candidaturas.
+      const anillo = document.querySelector('.anillo');
+      const lista = JSON.parse(anillo.dataset.anillo);
+      const ring = initRing(anillo, lista, (i) => {
+        const c = lista[i];
+        anillo.style.setProperty('--acc', c.color);
+        anillo.querySelector('[data-anillo-nombre]').textContent = c.nombre;
+        anillo.querySelector('[data-anillo-dato]').textContent = `${c.partido} · ${c.intencion}%`;
+        anillo.querySelector('[data-anillo-ir]').href = `#${c.slug}`;
+      });
+      if (!ring) anillo.closest('.selector').hidden = true;
+
+      // Contador de visitas (contador.php en el hosting): suma una por navegador y día.
+      (async () => {
+        const hoy = new Date().toISOString().slice(0, 10);
+        let nueva = true;
+        try {
+          nueva = localStorage.getItem('lima-elige-visita') !== hoy;
+        } catch {}
+        try {
+          const res = await fetch(`${import.meta.env.BASE_URL.replace(/\/?$/, '/')}contador.php`, { method: nueva ? 'POST' : 'GET' });
+          const { visitas } = await res.json();
+          if (!Number.isFinite(visitas)) return;
+          try {
+            localStorage.setItem('lima-elige-visita', hoy);
+          } catch {}
+          document.querySelector('[data-visitas-num]').textContent = new Intl.NumberFormat('es-PE').format(visitas);
+          document.querySelector('[data-visitas]').hidden = false;
+        } catch {}
+      })();
 
       // Riel lateral: marca la candidatura en pantalla.
       const riel = [...document.querySelectorAll('[data-riel]')];
